@@ -1,0 +1,25 @@
+# ─── Build Output ──────────────────────────────
+_site/
+
+# ─── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# ─── Environment ───────────────────────────────
+.env
+.env.local
+*.env
+
+# ─── OS ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ─── IDE ───────────────────────────────────────
+.idea/
+.vscode/
+*.sublime-*

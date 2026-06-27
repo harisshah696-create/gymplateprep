@@ -1,0 +1,25 @@
+# ─── GymPlatePrep — Netlify Configuration ───────────────────────
+# Builds the static site using the Python build.py script,
+# outputs to _site/ which Netlify serves.
+
+[build]
+  command = "python3 build.py"
+  publish = "_site"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# ─── Redirects ─────────────────────────────────────────────────
+# Strip .html extensions for cleaner URLs
+[[redirects]]
+  from = "/posts/*"
+  to = "/posts/:splat.html"
+  status = 200
+
+# ─── Headers ───────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="GymPlatePrep">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ canonical_url }}">
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {{ schema }}
+    </script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="site-logo">
+                <span class="site-logo__icon">💪</span>
+                <span class="site-logo__text">{{ site_title }}</span>
+            </a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/">Home</a>
+                <a href="/posts/complete-guide-gym-nutrition-muscle-gain.html">Guides</a>
+                <a href="/">Recipes</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>{{ site_title }}</h3>
+                    <p>{{ description }}</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/posts/complete-guide-gym-nutrition-muscle-gain.html">Nutrition Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Affiliate Disclosure</h3>
+                    <p>Some links on this site are affiliate links. We may earn a commission at no extra cost to you.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ year }} {{ site_title }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
