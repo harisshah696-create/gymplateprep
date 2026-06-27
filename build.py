@@ -56,7 +56,7 @@ def md_to_html(text):
         html.append("<table>")
         for idx, row in enumerate(table_buffer):
             cell_tag = "th" if idx == 0 else "td"
-            html.append(f"<tr>{''.join(f'<{cell_tag}>{c.strip()}</{cell_tag}>' for c in row)}</tr>")
+            html.append(f"<tr>{''.join(f'<{cell_tag}>{inline_md(c.strip())}</{cell_tag}>' for c in row)}</tr>")
         html.append("</table>")
         table_buffer = []
         in_table = False
@@ -325,6 +325,11 @@ def build_post(md_path):
     date = metadata.get("date", datetime.now().strftime("%Y-%m-%d"))
     slug = metadata.get("slug", md_path.stem)
     description = metadata.get("description", SITE_DESCRIPTION)
+    categories_raw = metadata.get("categories", "")
+    categories = [c.strip() for c in categories_raw.split(",") if c.strip()]
+    categories_html = "".join(
+        f'<span class="category-tag">{escape_html(cat)}</span>' for cat in categories
+    ) if categories else ""
     schema_json = metadata.get("schema", "")
 
     content_html = md_to_html(body)
@@ -335,6 +340,15 @@ def build_post(md_path):
         date_display = dt.strftime("%B %d, %Y")
     except ValueError:
         date_display = date
+
+    # Article meta (date + categories)
+    article_meta = f"""
+    <div class="article-meta">
+        <time class="article-meta__date" datetime="{date}">{date_display}</time>
+        {categories_html}
+    </div>"""
+
+    content_html = article_meta + "\n" + content_html
 
     # Article schema if not provided
     if not schema_json:
@@ -360,24 +374,34 @@ def build_post(md_path):
         year=datetime.now().strftime("%Y"),
         date=date_display,
         page_title=title,
-        canonical_url=f"{SITE_URL}/posts/{slug}.html"
+        canonical_url=f"{SITE_URL}/posts/{slug}.html",
+        categories_html=categories_html,
+        categories_list=",".join(categories)
     )
 
-    return full_html, slug, title, date, description
+    return full_html, slug, title, date, description, categories
 
 
 def build_index(posts):
     """Build the homepage listing all posts."""
     posts_html = ""
-    for title, slug, date, description in posts:
+    for title, slug, date, description, categories in posts:
         try:
             dt = datetime.strptime(date, "%Y-%m-%d")
             date_fmt = dt.strftime("%b %d, %Y")
         except ValueError:
             date_fmt = date
+        categories_tag_html = ""
+        if categories:
+            for cat in categories:
+                categories_tag_html += f'<span class="category-tag">{escape_html(cat)}</span>'
+
         posts_html += f"""
         <article class="post-card">
-            <time class="post-card__date">{date_fmt}</time>
+            <div class="post-card__meta">
+                <time class="post-card__date">{date_fmt}</time>
+                {categories_tag_html}
+            </div>
             <h2 class="post-card__title"><a href="posts/{slug}.html">{escape_html(title)}</a></h2>
             <p class="post-card__excerpt">{escape_html(description)}</p>
             <a class="post-card__link" href="posts/{slug}.html">Read More →</a>
@@ -442,9 +466,9 @@ def main():
     post_metadata = []
     for md_path in md_files:
         print(f"  📝 {md_path.relative_to(CONTENT_DIR)}")
-        html, slug, title, date, description = build_post(md_path)
+        html, slug, title, date, description, categories = build_post(md_path)
         (posts_dir / f"{slug}.html").write_text(html, encoding="utf-8")
-        post_metadata.append((title, slug, date, description))
+        post_metadata.append((title, slug, date, description, categories))
 
     # Build index
     post_metadata.sort(key=lambda p: p[2], reverse=True)  # Sort by date desc
