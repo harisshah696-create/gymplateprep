@@ -30,219 +30,379 @@ schema: '{
 
 Building muscle isn't just about lifting heavier — it's about fueling your body with the right nutrients at the right times.
 
-To gain muscle effectively, you need a **caloric surplus**, enough **protein**, and properly timed meals around your workouts.
+To maximize muscle growth, you need:
 
-This guide covers exactly what to eat, when to eat it, and how much you need for measurable muscle growth.
+* A consistent **calorie surplus**
+* Sufficient **daily protein**
+* Proper **meal timing**
+* Progressive resistance training
 
-## How Many Calories Should You Eat for Muscle Gain?
-
-The foundation of muscle growth is a **caloric surplus** — eating more energy than your body burns. Without it, your body lacks the raw materials to build new tissue.
-
-**Your target: Maintenance calories + 300–500 per day.**
-
-| Body Type | Daily Target |
-|-----------|-------------|
-| Ectomorph (hardgainer) | 2,700–3,000 |
-| Mesomorph (athletic) | 2,850–3,200 |
-| Endomorph (stockier) | 2,550–2,900 |
-
-*Estimates for a 175 lb (79 kg) active male. Adjust based on your response.*
-
-A surplus larger than **500 calories** typically leads to excess fat gain. The sweet spot is a **lean bulk** — gaining **0.25–0.5%** of body weight per week. For a 175 lb male, that's **0.4–0.9 lb per week**.
-
-Track your weight weekly. If you're gaining more than **1 lb/week**, cut back by 100–150 calories. If you're gaining less than **0.25 lb/week**, add 100–150.
-
-## How Much Protein Do You Need for Muscle Growth?
-
-Protein provides the amino acids your body uses to repair and build muscle tissue after training.
-
-**Target: 1.6–2.2g per kg of body weight (0.73–1.0g per lb).**
-
-| Body Weight | Optimal Protein |
-|-------------|----------------|
-| 150 lb (68 kg) | 136g |
-| 175 lb (79 kg) | 159g |
-| 200 lb (91 kg) | 182g |
-| 225 lb (102 kg) | 204g |
-
-Studies show that protein above **2.2g/kg** provides no additional benefit. The key is **consistency** — hitting your target daily matters more than exact timing.
-
-### Best Protein Sources
-
-- **Chicken breast** — 31g protein per 100g, lean, versatile
-- **Eggs (whole)** — 13g per 100g, complete amino profile
-- **Greek yogurt** — 10g per 100g, high in casein for slow digestion
-- **Whey protein** — 80–90g per 100g, fast absorption, ideal post-workout
-- **Salmon** — 25g per 100g, plus omega-3s
-- **Cottage cheese** — 11g per 100g, slow-digesting casein, great before bed
-
-**Tip:** Distribute protein evenly across **4–5 meals** per day. This maximizes muscle protein synthesis better than cramming it all into one or two meals.
-
-## What Is the Best Carb Intake for Building Muscle?
-
-Carbs are your body's primary fuel during resistance training. They replenish glycogen, improve performance, and spare protein for muscle repair.
-
-**Target: 4–7g per kg of body weight daily.**
-
-- **4g/kg** — sedentary days or cutting phase
-- **5–6g/kg** — standard training days
-- **7g/kg** — high-volume training or if you struggle to gain weight
-
-### Best Carb Sources
-
-- **Oats** — slow-digesting, sustained energy
-- **White rice** — easily digestible, great pre-workout
-- **Sweet potatoes** — nutrient-dense, fiber-rich
-- **Whole grain bread** — convenient and versatile
-- **Fruit** — quick energy, micronutrients
-- **Quinoa** — complete protein + complex carbs
-
-**Strategic timing:** Front-load carbs around your workout. Eat a carb-based meal **1.5–2 hours before training** and another post-workout to replenish glycogen.
-
-## How Much Fat Should You Eat?
-
-Dietary fat is essential for hormone production, including testosterone. It also helps absorb vitamins A, D, E, and K.
-
-**Target: 0.5–1.0g per kg of body weight (20–30% of calories).**
-
-For a **175 lb (79 kg)** male, that's **40–79g per day**. Don't go below **0.5g/kg** — your hormones need it.
-
-### Best Fat Sources
-
-- **Avocado** — monounsaturated fats, fiber, potassium
-- **Nuts and nut butters** — calorie-dense, easy to add
-- **Olive oil** — heart-healthy, versatile for cooking
-- **Fatty fish** — omega-3s, anti-inflammatory
-- **Egg yolks** — complete nutrition
-- **Seeds (chia, flax, hemp)** — omega-3s and fiber
-
-## What Should You Eat Before a Workout?
-
-Your pre-workout meal provides energy and keeps you in a positive nitrogen balance.
-
-**Timing:** Eat **1.5–2 hours before training.**
-**Composition:** Moderate carbs + moderate protein + low fat + low fiber.
-
-### Best Pre-Workout Meals
-
-| Meal | Calories | Protein |
-|------|----------|---------|
-| Oatmeal + [whey protein](https://amzn.to/sample) + banana | ~450 | 35g |
-| White rice + grilled chicken + honey | ~500 | 40g |
-| Whole grain toast + peanut butter + banana | ~420 | 18g |
-| Greek yogurt + granola + berries | ~380 | 25g |
-
-Avoid heavy fats, excessive fiber, and large meals within **60 minutes** of training.
-
-## What Should You Eat After a Workout?
-
-Your muscles are primed to absorb nutrients for repair and growth. While the "anabolic window" is wider than once thought (up to **4–6 hours**), eating sooner is still beneficial.
-
-**Timing:** Eat within **1–2 hours post-workout.**
-**Composition:** Protein (25–40g) + carbs (0.5–1.0g/kg).
-
-### Best Post-Workout Meals
-
-| Meal | Calories | Protein |
-|------|----------|---------|
-| [Whey protein shake](https://amzn.to/sample) + 2 bananas + rice cakes | ~550 | 45g |
-| Salmon + sweet potato + broccoli | ~600 | 45g |
-| Chicken + white rice + mixed vegetables | ~550 | 50g |
-| 3 eggs + 3 egg whites + oats + avocado | ~550 | 40g |
-
-**Whey protein** is effective post-workout because it digests quickly and has high leucine content — the amino acid that triggers muscle protein synthesis. [MyProtein Impact Whey](https://www.myprotein.com/) delivers **21g per scoop**.
-
-## Do You Need Supplements?
-
-Supplements are supplementary to a solid diet. No pill replaces whole food, but some can give you an edge.
-
-| Supplement | Benefit | Dose |
-|------------|---------|------|
-| **Whey protein** | Fast-absorbing protein source | 25–50g post-workout |
-| **Creatine monohydrate** | Increases strength and muscle mass | 5g daily |
-| **Vitamin D** | Supports testosterone and recovery | 2,000–5,000 IU daily |
-| **Fish oil** | Reduces inflammation | 2–3g daily |
-| **Beta-alanine** | Improves endurance | 3–5g daily |
-
-The only essential supplement for muscle gain is **creatine monohydrate** — the most researched, most effective, and cheapest option at roughly **$0.30 per serving**.
-
-## Sample 7-Day Muscle Gain Meal Plan
-
-This **3,000-calorie plan** is for a 175 lb male. Adjust portions based on your target.
-
-**Day 1 — 3,050 cal | 227g protein**
-
-| Meal | Foods | Calories | Protein |
-|------|-------|----------|---------|
-| **Breakfast** | 4 eggs + 1 cup oatmeal + 1 tbsp peanut butter + banana | 650 | 35g |
-| **Lunch** | 6oz chicken breast + 1.5 cups white rice + broccoli | 650 | 50g |
-| **Pre-Workout** | 1 cup Greek yogurt + granola + honey | 400 | 25g |
-| **Post-Workout** | 1.5 scoops whey + 2 rice cakes + banana | 450 | 45g |
-| **Dinner** | 6oz salmon + sweet potato + asparagus | 600 | 42g |
-| **Before Bed** | 1 cup cottage cheese + almonds | 300 | 30g |
-
-**Day 2 — 3,020 cal | 202g protein**
-
-| Meal | Foods | Calories | Protein |
-|------|-------|----------|---------|
-| **Breakfast** | 3 eggs + 2 slices toast + avocado | 550 | 28g |
-| **Lunch** | 6oz ground beef + 1.5 cups pasta + marinara | 700 | 45g |
-| **Pre-Workout** | Banana + 2 tbsp peanut butter + rice cakes | 400 | 12g |
-| **Post-Workout** | 1.5 scoops whey + 1 cup milk + banana smoothie | 500 | 50g |
-| **Dinner** | 6oz chicken thigh + quinoa + roasted vegetables | 650 | 42g |
-| **Before Bed** | 1 cup cottage cheese | 220 | 25g |
-
-**Day 3 — 3,050 cal | 216g protein**
-
-| Meal | Foods | Calories | Protein |
-|------|-------|----------|---------|
-| **Breakfast** | Oatmeal + 1.5 scoops whey + blueberries + walnuts | 600 | 45g |
-| **Lunch** | 6oz turkey breast + whole wheat wrap + veggies + hummus | 650 | 48g |
-| **Pre-Workout** | Rice cakes + almond butter + honey | 350 | 8g |
-| **Post-Workout** | 6oz lean beef + 2 cups white rice + green beans | 700 | 50g |
-| **Dinner** | 6oz cod + roasted potatoes + mixed veggies | 500 | 40g |
-| **Before Bed** | 1 cup Greek yogurt + chia seeds | 250 | 25g |
+This guide covers exactly **what to eat, when to eat it, and how much you need** for consistent muscle growth.
 
 ---
 
-## Frequently Asked Questions
+# 1. Calories for Muscle Gain
 
-**Can you build muscle without eating in a surplus?**
+Muscle cannot be built efficiently without consuming more energy than your body burns.
 
-Extremely difficult for anyone past beginner stage. For sustainable gains, aim for a **300–500 calorie surplus** above maintenance.
+### Target
 
-**Is it better to eat 3 big meals or 5–6 small meals?**
+**Maintenance Calories + 300–500 kcal/day**
 
-Total daily intake matters more. Eating **3–4 meals** with 25–40g of protein each is effective and more practical than 6 small meals.
+A moderate surplus promotes lean muscle gain while minimizing fat accumulation.
 
-**Do I need a protein shake immediately after working out?**
+## Estimated Daily Calories
 
-No. You have **4–6 hours** post-workout to consume protein. But a shake within 1–2 hours is a convenient way to hit your daily target.
+| Body Type | Daily Calories |
+| --- | ---: |
+| Ectomorph (Hardgainer) | 2,700–3,000 |
+| Mesomorph (Athletic) | 2,850–3,200 |
+| Endomorph (Stockier) | 2,550–2,900 |
 
-**How much water should I drink?**
-
-**3–4 liters (0.8–1 gallon)** daily. More if you train in hot conditions or sweat heavily.
-
-**Can vegetarians build muscle as effectively?**
-
-Yes. Focus on complete protein combinations (rice + beans, tofu + quinoa) and consider a [plant protein powder](https://amzn.to/sample). Watch iron, zinc, B12, and creatine.
-
-**How long until I see results?**
-
-Beginners see changes in **8–12 weeks**. Intermediate lifters in **3–6 months**. Realistic gain: 1–2 lb per month (beginners), 0.5–1 lb (intermediate).
+*Based on an active 175 lb (79 kg) male.*
 
 ---
 
-## Key Takeaways
+## Weekly Weight Gain Goal
 
-1. **Caloric surplus** of **300–500 calories** above maintenance
-2. **Protein:** **1.6–2.2g per kg**, spread across 4 meals
-3. **Carbs:** **4–7g per kg**, timed around workouts
-4. **Fats:** Minimum **0.5g per kg** for hormone health
-5. **Creatine monohydrate** is the only essential supplement
-6. Track weight weekly — aim for **0.25–0.5%** gain per week
-7. **Consistency beats perfection** — 80% compliance delivers results
+Aim to gain:
 
-*This guide is part of our comprehensive nutrition series. Next: The Ultimate Guide to Meal Prep for Weight Loss.*
+**0.25–0.5% of body weight per week**
 
-**Disclaimer:** This information is for educational purposes only. Consult a healthcare provider before making significant dietary changes.
+For a **175 lb (79 kg)** individual:
+
+* **0.4–0.9 lb (0.2–0.4 kg) per week**
+
+### Adjust Your Calories
+
+* Gaining **>1 lb/week?** Reduce intake by **100–150 calories**
+* Gaining **<0.25 lb/week?** Increase intake by **100–150 calories**
+
+---
+
+# 2. Protein Requirements
+
+Protein supplies the amino acids required for muscle repair and growth.
+
+### Recommended Intake
+
+**1.6–2.2 g per kg of body weight**
+
+| Body Weight | Daily Protein |
+| --- | ---: |
+| 150 lb (68 kg) | 136 g |
+| 175 lb (79 kg) | 159 g |
+| 200 lb (91 kg) | 182 g |
+| 225 lb (102 kg) | 204 g |
+
+Research shows protein intake above **2.2 g/kg** provides little to no additional muscle-building benefit.
+
+The most important factor is **consistently hitting your protein target every day.**
+
+---
+
+## Best Protein Sources
+
+| Food | Protein |
+| --- | ---: |
+| Chicken Breast | 31 g / 100 g |
+| Whole Eggs | 13 g / 100 g |
+| Greek Yogurt | 10 g / 100 g |
+| Whey Protein | 80–90 g / 100 g |
+| Salmon | 25 g / 100 g |
+| Cottage Cheese | 11 g / 100 g |
+
+### Tip
+
+Distribute protein across **3–5 meals per day**, with **25–40 g per meal**, to maximize muscle protein synthesis.
+
+---
+
+# 3. Carbohydrates
+
+Carbohydrates are your body's primary fuel source for resistance training.
+
+They:
+
+* Improve workout performance
+* Replenish glycogen
+* Spare protein for muscle repair
+
+### Recommended Intake
+
+**4–7 g per kg of body weight**
+
+| Goal | Intake |
+| --- | ---: |
+| Rest Day | 4 g/kg |
+| Normal Training | 5–6 g/kg |
+| High Volume / Hardgainers | 7 g/kg |
+
+---
+
+## Best Carb Sources
+
+* Oats
+* White Rice
+* Sweet Potatoes
+* Whole Grain Bread
+* Fruit
+* Quinoa
+
+### Carb Timing
+
+Consume most of your carbohydrates:
+
+* **1.5–2 hours before training**
+* **Within 1–2 hours after training**
+
+---
+
+# 4. Dietary Fat
+
+Healthy fats support:
+
+* Testosterone production
+* Hormone function
+* Vitamin absorption
+* Long-term health
+
+### Recommended Intake
+
+**0.5–1.0 g/kg**
+
+Approximately **20–30% of total calories**
+
+For a **79 kg (175 lb)** individual:
+
+**40–79 g/day**
+
+Avoid dropping below **0.5 g/kg**.
+
+---
+
+## Best Fat Sources
+
+* Avocados
+* Olive Oil
+* Nuts & Nut Butters
+* Fatty Fish
+* Egg Yolks
+* Chia, Flax & Hemp Seeds
+
+---
+
+# 5. Pre-Workout Nutrition
+
+A good pre-workout meal provides energy and improves performance.
+
+### Timing
+
+**1.5–2 hours before training**
+
+### Ideal Composition
+
+* Moderate carbohydrates
+* Moderate protein
+* Low fat
+* Low fiber
+
+---
+
+## Sample Pre-Workout Meals
+
+| Meal | Calories | Protein |
+| --- | ---: | ---: |
+| Oatmeal + Whey + Banana | ~450 | 35 g |
+| White Rice + Chicken + Honey | ~500 | 40 g |
+| Whole Grain Toast + Peanut Butter + Banana | ~420 | 18 g |
+| Greek Yogurt + Granola + Berries | ~380 | 25 g |
+
+Avoid large, fatty meals within **60 minutes** of training.
+
+---
+
+# 6. Post-Workout Nutrition
+
+After training, your muscles are primed for recovery and growth.
+
+Although the anabolic window is wider than once believed, eating soon after training is still beneficial.
+
+### Timing
+
+**Within 1–2 hours after training**
+
+### Recommended Intake
+
+* **25–40 g Protein**
+* **0.5–1.0 g Carbs per kg body weight**
+
+---
+
+## Sample Post-Workout Meals
+
+| Meal | Calories | Protein |
+| --- | ---: | ---: |
+| Whey Shake + 2 Bananas + Rice Cakes | ~550 | 45 g |
+| Salmon + Sweet Potato + Broccoli | ~600 | 45 g |
+| Chicken + White Rice + Vegetables | ~550 | 50 g |
+| 3 Eggs + 3 Egg Whites + Oats + Avocado | ~550 | 40 g |
+
+Whey protein is an excellent post-workout option due to its rapid digestion and high leucine content.
+
+---
+
+# 7. Supplements
+
+Supplements should complement — not replace — a quality diet.
+
+## Evidence-Based Supplements
+
+| Supplement | Benefit | Daily Dose |
+| --- | --- | ---: |
+| Whey Protein | Convenient protein source | 25–50 g |
+| Creatine Monohydrate | Strength & muscle gain | 5 g |
+| Vitamin D | Recovery & hormone support | 2,000–5,000 IU |
+| Fish Oil | Recovery & inflammation | 2–3 g |
+| Beta-Alanine | Muscular endurance | 3–5 g |
+
+### Most Important Supplement
+
+**Creatine Monohydrate (5 g daily)**
+
+It remains the most researched, effective, and affordable supplement for increasing muscle mass and strength.
+
+---
+
+# 8. Sample 3-Day Muscle Gain Meal Plan
+
+**Target: ~3,000 Calories**
+
+---
+
+## Day 1
+
+**3,050 Calories • 227 g Protein**
+
+| Meal | Foods |
+| --- | --- |
+| Breakfast | 4 Eggs, Oatmeal, Peanut Butter, Banana |
+| Lunch | Chicken Breast, White Rice, Broccoli |
+| Pre-Workout | Greek Yogurt, Granola, Honey |
+| Post-Workout | Whey Protein, Rice Cakes, Banana |
+| Dinner | Salmon, Sweet Potato, Asparagus |
+| Before Bed | Cottage Cheese, Almonds |
+
+---
+
+## Day 2
+
+**3,020 Calories • 202 g Protein**
+
+| Meal | Foods |
+| --- | --- |
+| Breakfast | Eggs, Toast, Avocado |
+| Lunch | Lean Ground Beef, Pasta, Marinara |
+| Pre-Workout | Banana, Peanut Butter, Rice Cakes |
+| Post-Workout | Whey Smoothie with Milk & Banana |
+| Dinner | Chicken Thigh, Quinoa, Vegetables |
+| Before Bed | Cottage Cheese |
+
+---
+
+## Day 3
+
+**3,050 Calories • 216 g Protein**
+
+| Meal | Foods |
+| --- | --- |
+| Breakfast | Oatmeal, Whey, Blueberries, Walnuts |
+| Lunch | Turkey Wrap with Hummus |
+| Pre-Workout | Rice Cakes, Almond Butter, Honey |
+| Post-Workout | Lean Beef, White Rice, Green Beans |
+| Dinner | Cod, Roasted Potatoes, Vegetables |
+| Before Bed | Greek Yogurt, Chia Seeds |
+
+---
+
+# Frequently Asked Questions
+
+### Can you build muscle without a calorie surplus?
+
+It's possible for beginners or overweight individuals, but for most lifters a **300–500 calorie surplus** is the most reliable way to build muscle.
+
+---
+
+### Is 3 meals or 6 meals better?
+
+Total daily calories and protein matter more than meal frequency.
+
+Aim for **3–5 meals**, each containing **25–40 g of protein**.
+
+---
+
+### Do I need a protein shake immediately after training?
+
+No.
+
+The anabolic window lasts several hours, but consuming protein within **1–2 hours** after training is convenient and effective.
+
+---
+
+### How much water should I drink?
+
+Aim for:
+
+**3–4 liters (0.8–1 gallon) per day**
+
+Increase intake if you sweat heavily or train in hot environments.
+
+---
+
+### Can vegetarians build muscle?
+
+Yes.
+
+Focus on complete protein sources or combinations such as:
+
+* Rice + Beans
+* Tofu + Quinoa
+
+Monitor intake of:
+
+* Vitamin B12
+* Iron
+* Zinc
+* Creatine
+
+---
+
+### How long before I see results?
+
+| Experience Level | Expected Progress |
+| --- | --- |
+| Beginner | Noticeable changes in 8–12 weeks |
+| Intermediate | Visible changes in 3–6 months |
+
+Realistic muscle gain:
+
+* Beginners: **1–2 lb/month**
+* Intermediate: **0.5–1 lb/month**
+
+---
+
+# Key Takeaways
+
+* Maintain a **300–500 calorie surplus**
+* Consume **1.6–2.2 g protein/kg body weight**
+* Eat **4–7 g carbs/kg**, especially around workouts
+* Consume at least **0.5 g fat/kg**
+* Take **5 g creatine monohydrate daily**
+* Track body weight weekly and adjust calories when needed
+* Consistency beats perfection — long-term adherence produces the best results
+
+---
+
+**Disclaimer**
+
+This guide is intended for educational purposes only and should not replace professional medical or nutritional advice. Consult a qualified healthcare provider before making significant dietary changes.
