@@ -16,6 +16,13 @@
   to = "/posts/:splat.html"
   status = 200
 
+# Category pages (directory index handled by Netlify automatically)
+# 404 catch-all — Netlify serves 404.html from publish directory
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
 # ─── Headers ───────────────────────────────────────────────────
 [[headers]]
   for = "/*"
@@ -23,3 +30,13 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+
+[[headers]]
+  for = "/rss.xml"
+  [headers.values]
+    Content-Type = "application/rss+xml; charset=utf-8"

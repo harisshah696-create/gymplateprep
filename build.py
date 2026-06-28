@@ -2,6 +2,9 @@
 """Gym Nutrition Blog — Static Site Generator
 Zero dependencies, pure Python 3 standard library.
 Converts markdown to HTML, applies templates, outputs to _site/
+
+New in v2: RSS feed, XML sitemap, category archives, standalone pages,
+custom 404 page, and dynamic navigation from post categories.
 """
 
 import os
@@ -9,6 +12,7 @@ import re
 import shutil
 from pathlib import Path
 from datetime import datetime
+from collections import defaultdict
 
 # ─── Configuration ────────────────────────────────────────────
 CONTENT_DIR = Path("content")
@@ -21,12 +25,19 @@ SITE_DESCRIPTION = "Science-backed gym nutrition guides, meal prep recipes, and 
 SITE_URL = "https://gymplateprep.com"
 AUTHOR = "GymPlatePrep"
 
+
 # ─── Simple Markdown → HTML Converter ─────────────────────────
 
-def md_to_html(text):
-    """Convert markdown text to HTML using only stdlib."""
+def md_to_html(text: str) -> tuple:
+    """Convert markdown text to HTML using only stdlib.
+
+    Returns (html_string, headings_list) where headings_list contains
+    (level, text, id) tuples for h2+ headings (used for ToC generation).
+    """
     lines = text.split("\n")
     html = []
+    headings = []  # (level, text, id) for h2+
+    used_ids = set()
     i = 0
     in_code_block = False
     code_buffer = []
@@ -88,8 +99,6 @@ def md_to_html(text):
 
         # Tables
         if "|" in line and line.strip().startswith("|"):
-            cells = [c for c in line.strip().split("|") if c.strip() or c == ""]
-            # Remove first/last empty if pipe starts/ends
             parts = line.strip().split("|")
             if line.strip().startswith("|"):
                 parts = parts[1:]
@@ -130,8 +139,19 @@ def md_to_html(text):
             flush_list()
             flush_table()
             level = len(heading_match.group(1))
-            content = inline_md(heading_match.group(2))
-            html.append(f"<h{level}>{content}</h{level}>")
+            content_raw = heading_match.group(2)
+            content = inline_md(content_raw)
+            # Add anchor ID (deduplicated) and track h2+ for ToC
+            heading_id = slugify(content_raw)
+            unique_id = heading_id
+            counter = 2
+            while unique_id in used_ids:
+                unique_id = f"{heading_id}-{counter}"
+                counter += 1
+            used_ids.add(unique_id)
+            if level >= 2:
+                headings.append((level, content, unique_id))
+            html.append(f'<h{level} id="{unique_id}">{content}</h{level}>')
             i += 1
             continue
 
@@ -210,10 +230,10 @@ def md_to_html(text):
     if in_table:
         flush_table()
 
-    return "\n".join(html)
+    return "\n".join(html), headings
 
 
-def inline_md(text):
+def inline_md(text: str) -> str:
     """Process inline markdown: bold, italic, code, links, images."""
     # Images ![alt](url)
     text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" loading="lazy">', text)
@@ -230,7 +250,7 @@ def inline_md(text):
     return text
 
 
-def escape_html(text):
+def escape_html(text: str) -> str:
     """Escape HTML special characters."""
     text = text.replace("&", "&amp;")
     text = text.replace("<", "&lt;")
@@ -238,11 +258,23 @@ def escape_html(text):
     return text
 
 
+def slugify(text: str) -> str:
+    """Convert text to URL-safe HTML ID."""
+    slug = text.lower()
+    slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+    slug = re.sub(r'[\s-]+', '-', slug)
+    slug = slug.strip('-')
+    return slug or "heading"
+
+
 # ─── Frontmatter Parser ───────────────────────────────────────
 
-def parse_frontmatter(text):
+def parse_frontmatter(text: str) -> tuple:
     """Parse YAML-style frontmatter between --- markers.
-    Handles multi-line values enclosed in single or double quotes."""
+
+    Returns (metadata_dict, body_string).
+    Handles multi-line values enclosed in single or double quotes.
+    """
     metadata = {}
     content = text
 
@@ -301,7 +333,7 @@ def parse_frontmatter(text):
 
 # ─── Template Engine ──────────────────────────────────────────
 
-def render_template(template_name, **kwargs):
+def render_template(template_name: str, **kwargs) -> str:
     """Simple {{ variable }} replacement template engine."""
     path = TEMPLATES_DIR / template_name
     template = path.read_text(encoding="utf-8")
@@ -314,9 +346,49 @@ def render_template(template_name, **kwargs):
     return result
 
 
+# ─── Navigation ───────────────────────────────────────────────
+
+def build_nav_links(posts_metadata: list) -> str:
+    """Generate navigation links HTML from all post categories."""
+    cats = set()
+    for _, _, _, _, categories in posts_metadata:
+        for cat in categories:
+            cats.add(cat)
+
+    links = ['<a href="/">Home</a>']
+    for cat in sorted(cats):
+        slug = cat.lower().replace(" ", "-")
+        links.append(f'<a href="/categories/{slug}/">{escape_html(cat)}</a>')
+    links.append('<a href="/about.html">About</a>')
+
+    return "\n                ".join(links)
+
+
 # ─── Build Functions ──────────────────────────────────────────
 
-def build_post(md_path):
+def generate_toc(headings: list) -> str:
+    """Generate table of contents HTML from headings list.
+
+    Only renders when there are 2+ headings (meaningful navigation).
+    """
+    if len(headings) < 2:
+        return ""
+
+    items = []
+    for level, text, heading_id in headings:
+        cls = "toc__item toc__item--h2" if level == 2 else "toc__item toc__item--h3"
+        items.append(f'          <li class="{cls}"><a href="#{heading_id}">{text}</a></li>')
+
+    return f"""
+    <nav class="toc" aria-label="Table of Contents">
+        <h2 class="toc__title">On This Page</h2>
+        <ul class="toc__list">
+{chr(10).join(items)}
+        </ul>
+    </nav>"""
+
+
+def build_post(md_path: Path, nav_links: str) -> tuple:
     """Convert a markdown file to a full HTML post page."""
     text = md_path.read_text(encoding="utf-8")
     metadata, body = parse_frontmatter(text)
@@ -332,7 +404,8 @@ def build_post(md_path):
     ) if categories else ""
     schema_json = metadata.get("schema", "")
 
-    content_html = md_to_html(body)
+    content_html, headings = md_to_html(body)
+    toc_html = generate_toc(headings)
 
     # Format date for display
     try:
@@ -348,7 +421,7 @@ def build_post(md_path):
         {categories_html}
     </div>"""
 
-    content_html = article_meta + "\n" + content_html
+    content_html = article_meta + "\n" + toc_html + "\n" + content_html
 
     # Article schema if not provided
     if not schema_json:
@@ -376,16 +449,17 @@ def build_post(md_path):
         page_title=title,
         canonical_url=f"{SITE_URL}/posts/{slug}.html",
         categories_html=categories_html,
-        categories_list=",".join(categories)
+        categories_list=",".join(categories),
+        nav_links=nav_links
     )
 
     return full_html, slug, title, date, description, categories
 
 
-def build_index(posts):
+def build_index(posts_metadata: list, nav_links: str) -> None:
     """Build the homepage listing all posts."""
     posts_html = ""
-    for title, slug, date, description, categories in posts:
+    for title, slug, date, description, categories in posts_metadata:
         try:
             dt = datetime.strptime(date, "%Y-%m-%d")
             date_fmt = dt.strftime("%b %d, %Y")
@@ -428,13 +502,211 @@ def build_index(posts):
         year=datetime.now().strftime("%Y"),
         date="",
         page_title="Home",
-        canonical_url=SITE_URL
+        canonical_url=SITE_URL,
+        nav_links=nav_links
     )
 
     (OUTPUT_DIR / "index.html").write_text(homepage, encoding="utf-8")
 
 
-def copy_static():
+def build_rss(posts_metadata: list) -> None:
+    """Generate RSS 2.0 feed at _site/rss.xml."""
+    def rfc2822(date_str: str) -> str:
+        try:
+            dt = datetime.strptime(date_str, "%Y-%m-%d")
+            return dt.strftime("%a, %d %b %Y %H:%M:%S +0000")
+        except ValueError:
+            return date_str
+
+    items = []
+    for title, slug, date, description, categories in posts_metadata:
+        items.append(f"""    <item>
+      <title>{escape_html(title)}</title>
+      <link>{SITE_URL}/posts/{slug}.html</link>
+      <description>{escape_html(description)}</description>
+      <pubDate>{rfc2822(date)}</pubDate>
+      <guid isPermaLink="true">{SITE_URL}/posts/{slug}.html</guid>
+    </item>""")
+
+    rss = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{SITE_TITLE}</title>
+    <link>{SITE_URL}</link>
+    <description>{SITE_DESCRIPTION}</description>
+    <language>en-us</language>
+    <lastBuildDate>{rfc2822(datetime.now().strftime("%Y-%m-%d"))}</lastBuildDate>
+    <atom:link href="{SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
+{chr(10).join(items)}
+  </channel>
+</rss>"""
+
+    (OUTPUT_DIR / "rss.xml").write_text(rss.strip(), encoding="utf-8")
+    print(f"  📡 rss.xml")
+
+
+def build_sitemap(posts_metadata: list) -> None:
+    """Generate XML sitemap at _site/sitemap.xml."""
+    urls = [f"""  <url>
+    <loc>{SITE_URL}/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>"""]
+
+    for title, slug, date, description, categories in posts_metadata:
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/posts/{slug}.html</loc>
+    <lastmod>{date}</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>""")
+
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>"""
+
+    (OUTPUT_DIR / "sitemap.xml").write_text(sitemap.strip(), encoding="utf-8")
+    print(f"  🗺️  sitemap.xml")
+
+
+def build_category_pages(posts_metadata: list, nav_links: str) -> None:
+    """Generate category archive pages at _site/categories/{slug}/index.html."""
+    categories = defaultdict(list)
+    for title, slug, date, description, categories_list in posts_metadata:
+        for cat in categories_list:
+            categories[cat].append((title, slug, date, description, categories_list))
+
+    for category, cat_posts in categories.items():
+        posts_html = ""
+        for title, slug, date, description, cats in cat_posts:
+            try:
+                dt = datetime.strptime(date, "%Y-%m-%d")
+                date_fmt = dt.strftime("%b %d, %Y")
+            except ValueError:
+                date_fmt = date
+
+            categories_tag_html = ""
+            if cats:
+                for cat in cats:
+                    categories_tag_html += f'<span class="category-tag">{escape_html(cat)}</span>'
+
+            posts_html += f"""
+        <article class="post-card">
+            <div class="post-card__meta">
+                <time class="post-card__date">{date_fmt}</time>
+                {categories_tag_html}
+            </div>
+            <h2 class="post-card__title"><a href="/posts/{slug}.html">{escape_html(title)}</a></h2>
+            <p class="post-card__excerpt">{escape_html(description)}</p>
+            <a class="post-card__link" href="/posts/{slug}.html">Read More →</a>
+        </article>"""
+
+        cat_slug = category.lower().replace(" ", "-")
+
+        page = render_template(
+            "base.html",
+            title=f"{category} | {SITE_TITLE}",
+            site_title=SITE_TITLE,
+            description=f"Articles about {category.lower()} — {SITE_DESCRIPTION}",
+            content=f"""
+        <section class="category-header">
+            <h1>{escape_html(category)}</h1>
+            <p>All articles about {category.lower()}.</p>
+        </section>
+        <section class="posts-list">
+            {posts_html}
+        </section>
+            """,
+            schema="",
+            year=datetime.now().strftime("%Y"),
+            date="",
+            page_title=category,
+            canonical_url=f"{SITE_URL}/categories/{cat_slug}/",
+            nav_links=nav_links
+        )
+
+        cat_dir = OUTPUT_DIR / "categories" / cat_slug
+        cat_dir.mkdir(parents=True, exist_ok=True)
+        (cat_dir / "index.html").write_text(page, encoding="utf-8")
+        print(f"  📂 categories/{cat_slug}/")
+
+
+def build_pages(nav_links: str) -> None:
+    """Build standalone pages from content/pages/ (about, contact, etc.)."""
+    pages_dir = CONTENT_DIR / "pages"
+    if not pages_dir.exists():
+        return
+
+    for md_path in sorted(pages_dir.rglob("*.md")):
+        print(f"  📄 {md_path.relative_to(CONTENT_DIR)}")
+        text = md_path.read_text(encoding="utf-8")
+        metadata, body = parse_frontmatter(text)
+
+        title = metadata.get("title", md_path.stem.replace("-", " ").title())
+        description = metadata.get("description", SITE_DESCRIPTION)
+
+        content_html = md_to_html(body)
+
+        full_html = render_template(
+            "base.html",
+            title=f"{title} | {SITE_TITLE}",
+            site_title=SITE_TITLE,
+            description=description,
+            content=f"""
+        <article>
+            <h1>{title}</h1>
+            {content_html}
+        </article>
+            """,
+            schema="",
+            year=datetime.now().strftime("%Y"),
+            date="",
+            page_title=title,
+            canonical_url=f"{SITE_URL}/{md_path.stem}.html",
+            nav_links=nav_links
+        )
+
+        (OUTPUT_DIR / f"{md_path.stem}.html").write_text(full_html, encoding="utf-8")
+
+
+def build_404(nav_links: str, posts_metadata: list = None) -> None:
+    """Build custom 404 page with links to recent posts."""
+    recent_posts_html = ""
+    if posts_metadata:
+        recent = posts_metadata[:3]
+        for title, slug, date, desc, cats in recent:
+            recent_posts_html += f"""
+            <li><a href="/posts/{slug}.html">{escape_html(title)}</a></li>"""
+
+    content = f"""
+    <article class="error-page">
+        <h1>404 — Page Not Found</h1>
+        <p>Looks like this page took a rest day. The page you're looking for doesn't exist or has moved.</p>
+        <p><a href="/">← Back to Home</a></p>
+        {f'<h2>Try these popular guides:</h2><ul>{recent_posts_html}</ul>' if recent_posts_html else ''}
+    </article>
+    """
+
+    html = render_template(
+        "base.html",
+        title=f"404 Not Found | {SITE_TITLE}",
+        site_title=SITE_TITLE,
+        description="Page not found. Browse our gym nutrition guides.",
+        content=content,
+        schema="",
+        year=datetime.now().strftime("%Y"),
+        date="",
+        page_title="Page Not Found",
+        canonical_url=SITE_URL,
+        nav_links=nav_links
+    )
+
+    (OUTPUT_DIR / "404.html").write_text(html, encoding="utf-8")
+    print(f"  🚫 404.html")
+
+
+def copy_static() -> None:
     """Copy static assets to output."""
     if STATIC_DIR.exists():
         for item in STATIC_DIR.rglob("*"):
@@ -444,7 +716,7 @@ def copy_static():
                 shutil.copy2(item, dest)
 
 
-def main():
+def main() -> None:
     print("🏋️  Building Gym Nutrition Blog...\n")
 
     # Clean output
@@ -454,25 +726,51 @@ def main():
     # Copy static files
     copy_static()
 
-    # Find and build all posts
-    md_files = sorted(CONTENT_DIR.rglob("*.md"))
+    # Find pillar articles
+    pillars_dir = CONTENT_DIR / "pillars"
+    md_files = sorted(pillars_dir.rglob("*.md")) if pillars_dir.exists() else []
+
     if not md_files:
-        print("⚠️  No markdown files found in content/")
+        print("⚠️  No markdown files found in content/pillars/")
         return
 
+    # ── Pass 1: Parse frontmatter only (to build nav from categories) ──
+    post_metadata = []
+    for md_path in md_files:
+        text = md_path.read_text(encoding="utf-8")
+        metadata, _ = parse_frontmatter(text)
+        title = metadata.get("title", md_path.stem.replace("-", " ").title())
+        date = metadata.get("date", datetime.now().strftime("%Y-%m-%d"))
+        slug = metadata.get("slug", md_path.stem)
+        description = metadata.get("description", SITE_DESCRIPTION)
+        categories_raw = metadata.get("categories", "")
+        categories = [c.strip() for c in categories_raw.split(",") if c.strip()]
+        post_metadata.append((title, slug, date, description, categories))
+
+    # Build nav links from all categories
+    nav_links = build_nav_links(post_metadata)
+
+    # ── Pass 2: Build full HTML with complete navigation ──
     posts_dir = OUTPUT_DIR / "posts"
     posts_dir.mkdir(parents=True, exist_ok=True)
 
-    post_metadata = []
+    final_metadata = []
     for md_path in md_files:
         print(f"  📝 {md_path.relative_to(CONTENT_DIR)}")
-        html, slug, title, date, description, categories = build_post(md_path)
+        html, slug, title, date, description, categories = build_post(md_path, nav_links)
         (posts_dir / f"{slug}.html").write_text(html, encoding="utf-8")
-        post_metadata.append((title, slug, date, description, categories))
+        final_metadata.append((title, slug, date, description, categories))
 
-    # Build index
-    post_metadata.sort(key=lambda p: p[2], reverse=True)  # Sort by date desc
-    build_index(post_metadata)
+    # Sort by date descending
+    final_metadata.sort(key=lambda p: p[2], reverse=True)
+
+    # Build everything
+    build_index(final_metadata, nav_links)
+    build_rss(final_metadata)
+    build_sitemap(final_metadata)
+    build_category_pages(final_metadata, nav_links)
+    build_pages(nav_links)
+    build_404(nav_links, final_metadata)
 
     print(f"\n✅  Built {len(md_files)} posts → {OUTPUT_DIR}/")
     print(f"🌐  Open _site/index.html in your browser to preview.\n")
