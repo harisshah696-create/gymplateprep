@@ -388,7 +388,68 @@ def generate_toc(headings: list) -> str:
     </nav>"""
 
 
-def build_post(md_path: Path, nav_links: str) -> tuple:
+def find_related(current_slug: str, current_categories: list,
+                 post_metadata: list, max_results: int = 3) -> list:
+    """Find related posts by shared categories, excluding the current post."""
+    scored = []
+    for title, slug, date, description, categories, feat_img in post_metadata:
+        if slug == current_slug:
+            continue
+        shared = len(set(current_categories) & set(categories))
+        if shared > 0:
+            scored.append((shared, title, slug, description, feat_img))
+
+    scored.sort(key=lambda x: -x[0])
+    return [(t, s, d, f) for _, t, s, d, f in scored[:max_results]]
+
+
+def render_related(related: list) -> str:
+    """Generate related posts HTML section."""
+    if not related:
+        return ""
+
+    items = []
+    for title, slug, description, featured_image in related:
+        thumb = (f'<img class="related-card__thumb" src="{featured_image}"'
+                 f' alt="" loading="lazy" />') if featured_image else ""
+        items.append(f"""
+        <article class="related-card">
+            {thumb}
+            <div class="related-card__body">
+                <h3 class="related-card__title"><a href="/posts/{slug}.html">{escape_html(title)}</a></h3>
+                <p class="related-card__excerpt">{escape_html(description)}</p>
+                <a class="related-card__link" href="/posts/{slug}.html">Read More →</a>
+            </div>
+        </article>""")
+
+    return f"""
+    <section class="related-posts">
+        <h2 class="section-title">Related Guides</h2>
+        <div class="related-posts__grid">
+            {''.join(items)}
+        </div>
+    </section>"""
+
+
+def render_email_capture() -> str:
+    """Generate email capture form HTML for Netlify Forms."""
+    return f"""
+    <section class="email-capture">
+        <div class="email-capture__content">
+            <h2 class="email-capture__title">Free 7-Day Meal Prep Starter Kit</h2>
+            <p class="email-capture__text">Get a printable meal plan, shopping list, and calorie calculator delivered to your inbox. Start your transformation today.</p>
+            <form class="email-capture__form" method="POST" action="/thanks.html" data-netlify="true">
+                <input type="hidden" name="form-name" value="starter-kit">
+                <div class="email-capture__fields">
+                    <input class="email-capture__input" type="email" name="email" placeholder="Your email address" required>
+                    <button class="email-capture__btn" type="submit">Get the Kit</button>
+                </div>
+            </form>
+        </div>
+    </section>"""
+
+
+def build_post(md_path: Path, nav_links: str, post_metadata: list = None) -> tuple:
     """Convert a markdown file to a full HTML post page."""
     text = md_path.read_text(encoding="utf-8")
     metadata, body = parse_frontmatter(text)
@@ -440,11 +501,20 @@ def build_post(md_path: Path, nav_links: str) -> tuple:
         </div>
     </section>"""
 
+    email_capture_html = render_email_capture()
+
+    related_html = ""
+    if post_metadata:
+        related = find_related(slug, categories, post_metadata)
+        related_html = render_related(related)
+
     content_html = article_hero + "\n" + f"""
     <article>
         {toc_html}
         {content_html}
-    </article>"""
+    </article>
+    {email_capture_html}
+    {related_html}"""
 
     # Article schema if not provided
     if not schema_json:
@@ -797,23 +867,21 @@ def main() -> None:
     posts_dir = OUTPUT_DIR / "posts"
     posts_dir.mkdir(parents=True, exist_ok=True)
 
-    final_metadata = []
     for md_path in md_files:
         print(f"  📝 {md_path.relative_to(CONTENT_DIR)}")
-        html, slug, title, date, description, categories, featured_image = build_post(md_path, nav_links)
+        html, slug, title, date, description, categories, featured_image = build_post(md_path, nav_links, post_metadata)
         (posts_dir / f"{slug}.html").write_text(html, encoding="utf-8")
-        final_metadata.append((title, slug, date, description, categories, featured_image))
 
-    # Sort by date descending
-    final_metadata.sort(key=lambda p: p[2], reverse=True)
+    # Sort by date descending for index/rss/sitemap
+    post_metadata.sort(key=lambda p: p[2], reverse=True)
 
     # Build everything
-    build_index(final_metadata, nav_links)
-    build_rss(final_metadata)
-    build_sitemap(final_metadata)
-    build_category_pages(final_metadata, nav_links)
+    build_index(post_metadata, nav_links)
+    build_rss(post_metadata)
+    build_sitemap(post_metadata)
+    build_category_pages(post_metadata, nav_links)
     build_pages(nav_links)
-    build_404(nav_links, final_metadata)
+    build_404(nav_links, post_metadata)
 
     print(f"\n✅  Built {len(md_files)} posts → {OUTPUT_DIR}/")
     print(f"🌐  Open _site/index.html in your browser to preview.\n")
