@@ -646,7 +646,7 @@ def build_pages(nav_links: str) -> None:
         title = metadata.get("title", md_path.stem.replace("-", " ").title())
         description = metadata.get("description", SITE_DESCRIPTION)
 
-        content_html = md_to_html(body)
+        content_html, _ = md_to_html(body)
 
         full_html = render_template(
             "base.html",
