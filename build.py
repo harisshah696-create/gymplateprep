@@ -351,7 +351,7 @@ def render_template(template_name: str, **kwargs) -> str:
 def build_nav_links(posts_metadata: list) -> str:
     """Generate navigation links HTML from all post categories."""
     cats = set()
-    for _, _, _, _, categories in posts_metadata:
+    for _, _, _, _, categories, _ in posts_metadata:
         for cat in categories:
             cats.add(cat)
 
@@ -403,6 +403,7 @@ def build_post(md_path: Path, nav_links: str) -> tuple:
         f'<span class="category-tag">{escape_html(cat)}</span>' for cat in categories
     ) if categories else ""
     schema_json = metadata.get("schema", "")
+    featured_image = metadata.get("featured_image", "")
 
     content_html, headings = md_to_html(body)
     toc_html = generate_toc(headings)
@@ -414,14 +415,36 @@ def build_post(md_path: Path, nav_links: str) -> tuple:
     except ValueError:
         date_display = date
 
-    # Article meta (date + categories)
-    article_meta = f"""
-    <div class="article-meta">
-        <time class="article-meta__date" datetime="{date}">{date_display}</time>
-        {categories_html}
-    </div>"""
+    # Article hero with featured image or gradient fallback
+    article_meta_html = f"""
+        <div class="article-meta">
+            <time class="article-meta__date" datetime="{date}">{date_display}</time>
+            {categories_html}
+        </div>"""
 
-    content_html = article_meta + "\n" + toc_html + "\n" + content_html
+    if featured_image:
+        article_hero = f"""
+    <section class="article-hero article-hero--with-image" style="background-image: url({featured_image})">
+        <div class="article-hero__overlay"></div>
+        <div class="article-hero__content">
+            <h1>{title}</h1>
+            {article_meta_html}
+        </div>
+    </section>"""
+    else:
+        article_hero = f"""
+    <section class="article-hero article-hero--gradient">
+        <div class="article-hero__content">
+            <h1>{title}</h1>
+            {article_meta_html}
+        </div>
+    </section>"""
+
+    content_html = article_hero + "\n" + f"""
+    <article>
+        {toc_html}
+        {content_html}
+    </article>"""
 
     # Article schema if not provided
     if not schema_json:
@@ -453,13 +476,13 @@ def build_post(md_path: Path, nav_links: str) -> tuple:
         nav_links=nav_links
     )
 
-    return full_html, slug, title, date, description, categories
+    return full_html, slug, title, date, description, categories, featured_image
 
 
 def build_index(posts_metadata: list, nav_links: str) -> None:
     """Build the homepage listing all posts."""
     posts_html = ""
-    for title, slug, date, description, categories in posts_metadata:
+    for title, slug, date, description, categories, featured_image in posts_metadata:
         try:
             dt = datetime.strptime(date, "%Y-%m-%d")
             date_fmt = dt.strftime("%b %d, %Y")
@@ -470,15 +493,24 @@ def build_index(posts_metadata: list, nav_links: str) -> None:
             for cat in categories:
                 categories_tag_html += f'<span class="category-tag">{escape_html(cat)}</span>'
 
+        thumb_html = ""
+        card_class = "post-card"
+        if featured_image:
+            thumb_html = f'<img class="post-card__thumb" src="{featured_image}" alt="" loading="lazy" />'
+            card_class = "post-card post-card--has-image"
+
         posts_html += f"""
-        <article class="post-card">
-            <div class="post-card__meta">
-                <time class="post-card__date">{date_fmt}</time>
-                {categories_tag_html}
+        <article class="{card_class}">
+            {thumb_html}
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    <time class="post-card__date">{date_fmt}</time>
+                    {categories_tag_html}
+                </div>
+                <h2 class="post-card__title"><a href="posts/{slug}.html">{escape_html(title)}</a></h2>
+                <p class="post-card__excerpt">{escape_html(description)}</p>
+                <a class="post-card__link" href="posts/{slug}.html">Read More →</a>
             </div>
-            <h2 class="post-card__title"><a href="posts/{slug}.html">{escape_html(title)}</a></h2>
-            <p class="post-card__excerpt">{escape_html(description)}</p>
-            <a class="post-card__link" href="posts/{slug}.html">Read More →</a>
         </article>"""
 
     homepage = render_template(
@@ -487,7 +519,8 @@ def build_index(posts_metadata: list, nav_links: str) -> None:
         site_title=SITE_TITLE,
         description=SITE_DESCRIPTION,
         content=f"""
-        <section class="hero">
+        <section class="hero hero--with-image" style="background-image: url(/images/hero-gym.jpg)">
+            <div class="hero__overlay"></div>
             <div class="hero__content">
                 <h1>{SITE_TITLE}</h1>
                 <p>{SITE_DESCRIPTION}</p>
@@ -519,7 +552,7 @@ def build_rss(posts_metadata: list) -> None:
             return date_str
 
     items = []
-    for title, slug, date, description, categories in posts_metadata:
+    for title, slug, date, description, categories, _ in posts_metadata:
         items.append(f"""    <item>
       <title>{escape_html(title)}</title>
       <link>{SITE_URL}/posts/{slug}.html</link>
@@ -553,7 +586,7 @@ def build_sitemap(posts_metadata: list) -> None:
     <changefreq>weekly</changefreq>
   </url>"""]
 
-    for title, slug, date, description, categories in posts_metadata:
+    for title, slug, date, description, categories, _ in posts_metadata:
         urls.append(f"""  <url>
     <loc>{SITE_URL}/posts/{slug}.html</loc>
     <lastmod>{date}</lastmod>
@@ -573,13 +606,13 @@ def build_sitemap(posts_metadata: list) -> None:
 def build_category_pages(posts_metadata: list, nav_links: str) -> None:
     """Generate category archive pages at _site/categories/{slug}/index.html."""
     categories = defaultdict(list)
-    for title, slug, date, description, categories_list in posts_metadata:
+    for title, slug, date, description, categories_list, featured_image in posts_metadata:
         for cat in categories_list:
-            categories[cat].append((title, slug, date, description, categories_list))
+            categories[cat].append((title, slug, date, description, categories_list, featured_image))
 
     for category, cat_posts in categories.items():
         posts_html = ""
-        for title, slug, date, description, cats in cat_posts:
+        for title, slug, date, description, cats, featured_image in cat_posts:
             try:
                 dt = datetime.strptime(date, "%Y-%m-%d")
                 date_fmt = dt.strftime("%b %d, %Y")
@@ -591,15 +624,24 @@ def build_category_pages(posts_metadata: list, nav_links: str) -> None:
                 for cat in cats:
                     categories_tag_html += f'<span class="category-tag">{escape_html(cat)}</span>'
 
+            thumb_html = ""
+            card_class = "post-card"
+            if featured_image:
+                thumb_html = f'<img class="post-card__thumb" src="{featured_image}" alt="" loading="lazy" />'
+                card_class = "post-card post-card--has-image"
+
             posts_html += f"""
-        <article class="post-card">
-            <div class="post-card__meta">
-                <time class="post-card__date">{date_fmt}</time>
-                {categories_tag_html}
+        <article class="{card_class}">
+            {thumb_html}
+            <div class="post-card__body">
+                <div class="post-card__meta">
+                    <time class="post-card__date">{date_fmt}</time>
+                    {categories_tag_html}
+                </div>
+                <h2 class="post-card__title"><a href="/posts/{slug}.html">{escape_html(title)}</a></h2>
+                <p class="post-card__excerpt">{escape_html(description)}</p>
+                <a class="post-card__link" href="/posts/{slug}.html">Read More →</a>
             </div>
-            <h2 class="post-card__title"><a href="/posts/{slug}.html">{escape_html(title)}</a></h2>
-            <p class="post-card__excerpt">{escape_html(description)}</p>
-            <a class="post-card__link" href="/posts/{slug}.html">Read More →</a>
         </article>"""
 
         cat_slug = category.lower().replace(" ", "-")
@@ -675,7 +717,7 @@ def build_404(nav_links: str, posts_metadata: list = None) -> None:
     recent_posts_html = ""
     if posts_metadata:
         recent = posts_metadata[:3]
-        for title, slug, date, desc, cats in recent:
+        for title, slug, date, desc, cats, _ in recent:
             recent_posts_html += f"""
             <li><a href="/posts/{slug}.html">{escape_html(title)}</a></li>"""
 
@@ -745,7 +787,8 @@ def main() -> None:
         description = metadata.get("description", SITE_DESCRIPTION)
         categories_raw = metadata.get("categories", "")
         categories = [c.strip() for c in categories_raw.split(",") if c.strip()]
-        post_metadata.append((title, slug, date, description, categories))
+        featured_image = metadata.get("featured_image", "")
+        post_metadata.append((title, slug, date, description, categories, featured_image))
 
     # Build nav links from all categories
     nav_links = build_nav_links(post_metadata)
@@ -757,9 +800,9 @@ def main() -> None:
     final_metadata = []
     for md_path in md_files:
         print(f"  📝 {md_path.relative_to(CONTENT_DIR)}")
-        html, slug, title, date, description, categories = build_post(md_path, nav_links)
+        html, slug, title, date, description, categories, featured_image = build_post(md_path, nav_links)
         (posts_dir / f"{slug}.html").write_text(html, encoding="utf-8")
-        final_metadata.append((title, slug, date, description, categories))
+        final_metadata.append((title, slug, date, description, categories, featured_image))
 
     # Sort by date descending
     final_metadata.sort(key=lambda p: p[2], reverse=True)

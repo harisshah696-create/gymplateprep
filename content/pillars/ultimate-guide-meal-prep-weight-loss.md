@@ -3,6 +3,7 @@ title: "The Ultimate Guide to Meal Prep for Weight Loss"
 date: "2026-06-28"
 description: "Learn how to meal prep for weight loss with step-by-step plans, calorie-controlled recipes, and a 7-day meal prep menu that makes fat loss simple and sustainable."
 categories: "Nutrition, Weight Loss"
+featured_image: "/images/meal-prep-hero.jpg"
 slug: "ultimate-guide-meal-prep-weight-loss"
 schema: '{
   "@context": "https://schema.org",

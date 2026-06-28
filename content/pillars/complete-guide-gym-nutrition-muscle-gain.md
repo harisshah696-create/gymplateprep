@@ -3,6 +3,7 @@ title: "The Complete Guide to Gym Nutrition for Muscle Gain"
 date: "2026-06-27"
 description: "Science-backed guide to gym nutrition for muscle gain. Learn exactly how many calories, how much protein, and what to eat before and after workouts to build muscle effectively."
 categories: "Nutrition, Muscle Gain"
+featured_image: "/images/muscle-gain-hero.jpg"
 slug: "complete-guide-gym-nutrition-muscle-gain"
 schema: '{
   "@context": "https://schema.org",
