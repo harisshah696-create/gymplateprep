@@ -432,18 +432,18 @@ def render_related(related: list) -> str:
 
 
 def render_email_capture() -> str:
-    """Generate email capture form HTML for Netlify Forms."""
+    """Generate email capture form HTML."""
     return f"""
     <section class="email-capture">
         <div class="email-capture__content">
             <h2 class="email-capture__title">Free 7-Day Meal Prep Starter Kit</h2>
             <p class="email-capture__text">Get a printable meal plan, shopping list, and calorie calculator delivered to your inbox. Start your transformation today.</p>
-            <form class="email-capture__form" method="POST" action="/thanks.html" data-netlify="true">
-                <input type="hidden" name="form-name" value="starter-kit">
+            <form class="email-capture__form" id="email-capture-form">
                 <div class="email-capture__fields">
-                    <input class="email-capture__input" type="email" name="email" placeholder="Your email address" required>
-                    <button class="email-capture__btn" type="submit">Get the Kit</button>
+                    <input class="email-capture__input" id="email-input" type="email" name="email" placeholder="Your email address" required>
+                    <button class="email-capture__btn" id="email-submit-btn" type="submit">Get the Kit</button>
                 </div>
+                <p class="email-capture__msg" id="email-msg"></p>
             </form>
         </div>
     </section>"""

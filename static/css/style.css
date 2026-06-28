@@ -1069,6 +1069,16 @@ article p:has(strong:only-child) {
     transform: translateY(0);
 }
 
+.email-capture__msg {
+    margin: var(--space-sm) 0 0;
+    font-size: 0.875rem;
+    min-height: 1.25em;
+}
+
+.email-capture__msg--error {
+    color: #fca5a5;
+}
+
 /* Dark mode override */
 [data-theme="dark"] .email-capture {
     background: linear-gradient(135deg, #065f46, #047857);
