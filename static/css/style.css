@@ -767,6 +767,16 @@ article p:has(strong:only-child) {
         font-size: 1.2rem;
     }
 
+    /* Article hero on tablet */
+    .article-hero {
+        min-height: 220px;
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .article-hero__content h1 {
+        font-size: 2rem;
+    }
+
     /* Make tables scrollable on mobile */
     article table {
         display: block;
@@ -775,9 +785,25 @@ article p:has(strong:only-child) {
     }
 }
 
+@media (max-width: 640px) {
+    .site-nav {
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .site-nav a {
+        font-size: 0.75rem;
+    }
+}
+
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 1.7rem;
+    }
+
+    .hero--with-image {
+        min-height: 300px;
     }
 
     .post-card {
@@ -786,6 +812,35 @@ article p:has(strong:only-child) {
 
     .post-card__title {
         font-size: 1.1rem;
+    }
+
+    .article-hero {
+        min-height: 180px;
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .article-hero__content h1 {
+        font-size: 1.5rem;
+    }
+
+    .email-capture {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .email-capture__fields {
+        flex-direction: column;
+    }
+
+    .email-capture__input {
+        width: 100%;
+    }
+
+    .email-capture__btn {
+        width: 100%;
+    }
+
+    .posts-list {
+        padding-bottom: var(--space-xl);
     }
 }
 
