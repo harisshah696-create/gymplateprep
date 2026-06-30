@@ -1,18 +1,8 @@
 // ─── EmailJS Configuration ───────────────────────────────────────
-// To set this up:
-//   1. Sign up at https://www.emailjs.com/ (free tier: 200 emails/month)
-//   2. Go to Email Services → Add a new email service (Gmail, Outlook, or SMTP)
-//   3. Go to Email Templates → Create New Template
-//      - Template content: paste the meal plan, shopping list, and calorie
-//        calculator info. Use {{email}} as the recipient variable.
-//   4. Get your Public Key (Account → API Keys), Service ID, and Template ID
-//   5. Fill in the three values below:
 
-var EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // e.g. "abc123def456"
-var EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
-var EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz789"
-
-// ⚠️  After filling in the values above, delete this comment block.
+var EMAILJS_PUBLIC_KEY  = "AC6isIKtp8Qy8JXXK";
+var EMAILJS_SERVICE_ID  = "service_xr3rt13";
+var EMAILJS_TEMPLATE_ID = "template_l7ho90d";
 
 // ─── Form Handler ────────────────────────────────────────────────
 (function() {
