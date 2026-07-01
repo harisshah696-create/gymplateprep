@@ -3,6 +3,7 @@ title: "Creatine 101: Dosage, Timing, Benefits, and What Science Actually Says"
 date: "2026-07-01"
 description: "Everything you need to know about creatine monohydrate: how much to take, when to take it, how it works, and whether you really need to load. Science-backed and no-BS."
 categories: "Supplements"
+featured_image: "/images/creatine-hero.jpg"
 slug: "creatine-101-dosage-timing-benefits"
 schema: '{
   "@context": "https://schema.org",
