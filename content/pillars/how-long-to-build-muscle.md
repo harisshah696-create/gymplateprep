@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "Beginners see changes in 8-12 weeks. Realistic gain rates: 1-2 lbs per month for beginners, 0.5-1 lb for intermediates.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-long-to-build-muscle.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-long-to-build-muscle]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/muscle-gain-hero.jpg"
@@ -69,7 +69,7 @@ The #1 reason people don't build muscle: **inconsistency.** Three months of perf
 
 **1.6–2.2 g per kg of body weight daily.** This is the same for beginners and advanced lifters. Protein needs don't drop as you get more experienced.
 
-For a full breakdown, check out our guide: **[How Much Protein Do I Need Per Day?](/posts/how-much-protein-per-day.html)**.
+For a full breakdown, check out our guide: **[How Much Protein Do I Need Per Day?](/posts/how-much-protein-per-day])**.
 
 ---
 
@@ -84,6 +84,6 @@ For a full breakdown, check out our guide: **[How Much Protein Do I Need Per Day
 
 ---
 
-For the complete system on nutrition for muscle gain — calories, meal timing, supplements, and sample meal plans — read **[The Complete Guide to Gym Nutrition for Muscle Gain](/posts/complete-guide-gym-nutrition-muscle-gain.html)**.
+For the complete system on nutrition for muscle gain — calories, meal timing, supplements, and sample meal plans — read **[The Complete Guide to Gym Nutrition for Muscle Gain](/posts/complete-guide-gym-nutrition-muscle-gain])**.
 
 **Disclaimer:** Results vary based on genetics, training consistency, and nutrition adherence. These numbers are averages from research and real-world coaching experience.

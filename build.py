@@ -359,7 +359,7 @@ def build_nav_links(posts_metadata: list) -> str:
     for cat in sorted(cats):
         slug = cat.lower().replace(" ", "-")
         links.append(f'<a href="/categories/{slug}/">{escape_html(cat)}</a>')
-    links.append('<a href="/about.html">About</a>')
+    links.append('<a href="/about">About</a>')
 
     return "\n                ".join(links)
 
@@ -416,9 +416,9 @@ def render_related(related: list) -> str:
         <article class="related-card">
             {thumb}
             <div class="related-card__body">
-                <h3 class="related-card__title"><a href="/posts/{slug}.html">{escape_html(title)}</a></h3>
+                <h3 class="related-card__title"><a href="/posts/{slug}">{escape_html(title)}</a></h3>
                 <p class="related-card__excerpt">{escape_html(description)}</p>
-                <a class="related-card__link" href="/posts/{slug}.html">Read More →</a>
+                <a class="related-card__link" href="/posts/{slug}">Read More →</a>
             </div>
         </article>""")
 
@@ -540,7 +540,7 @@ def build_post(md_path: Path, nav_links: str, post_metadata: list = None) -> tup
         year=datetime.now().strftime("%Y"),
         date=date_display,
         page_title=title,
-        canonical_url=f"{SITE_URL}/posts/{slug}.html",
+        canonical_url=f"{SITE_URL}/posts/{slug}",
         categories_html=categories_html,
         categories_list=",".join(categories),
         nav_links=nav_links
@@ -577,9 +577,9 @@ def build_index(posts_metadata: list, nav_links: str) -> None:
                     <time class="post-card__date">{date_fmt}</time>
                     {categories_tag_html}
                 </div>
-                <h2 class="post-card__title"><a href="posts/{slug}.html">{escape_html(title)}</a></h2>
+                <h2 class="post-card__title"><a href="posts/{slug}">{escape_html(title)}</a></h2>
                 <p class="post-card__excerpt">{escape_html(description)}</p>
-                <a class="post-card__link" href="posts/{slug}.html">Read More →</a>
+                <a class="post-card__link" href="posts/{slug}">Read More →</a>
             </div>
         </article>"""
 
@@ -625,10 +625,10 @@ def build_rss(posts_metadata: list) -> None:
     for title, slug, date, description, categories, _ in posts_metadata:
         items.append(f"""    <item>
       <title>{escape_html(title)}</title>
-      <link>{SITE_URL}/posts/{slug}.html</link>
+      <link>{SITE_URL}/posts/{slug}</link>
       <description>{escape_html(description)}</description>
       <pubDate>{rfc2822(date)}</pubDate>
-      <guid isPermaLink="true">{SITE_URL}/posts/{slug}.html</guid>
+      <guid isPermaLink="true">{SITE_URL}/posts/{slug}</guid>
     </item>""")
 
     rss = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -658,7 +658,7 @@ def build_sitemap(posts_metadata: list) -> None:
 
     for title, slug, date, description, categories, _ in posts_metadata:
         urls.append(f"""  <url>
-    <loc>{SITE_URL}/posts/{slug}.html</loc>
+    <loc>{SITE_URL}/posts/{slug}</loc>
     <lastmod>{date}</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -708,9 +708,9 @@ def build_category_pages(posts_metadata: list, nav_links: str) -> None:
                     <time class="post-card__date">{date_fmt}</time>
                     {categories_tag_html}
                 </div>
-                <h2 class="post-card__title"><a href="/posts/{slug}.html">{escape_html(title)}</a></h2>
+                <h2 class="post-card__title"><a href="/posts/{slug}">{escape_html(title)}</a></h2>
                 <p class="post-card__excerpt">{escape_html(description)}</p>
-                <a class="post-card__link" href="/posts/{slug}.html">Read More →</a>
+                <a class="post-card__link" href="/posts/{slug}">Read More →</a>
             </div>
         </article>"""
 
@@ -789,7 +789,7 @@ def build_404(nav_links: str, posts_metadata: list = None) -> None:
         recent = posts_metadata[:3]
         for title, slug, date, desc, cats, _ in recent:
             recent_posts_html += f"""
-            <li><a href="/posts/{slug}.html">{escape_html(title)}</a></li>"""
+            <li><a href="/posts/{slug}">{escape_html(title)}</a></li>"""
 
     content = f"""
     <article class="error-page">

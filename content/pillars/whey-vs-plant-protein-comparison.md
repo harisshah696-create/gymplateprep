@@ -17,7 +17,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.pages.dev/posts/whey-vs-plant-protein-comparison.html"
+    "@id": "https://gymplateprep.pages.dev/posts/whey-vs-plant-protein-comparison]"
   },
   "publisher": {
     "@type": "Organization",
@@ -166,8 +166,8 @@ Many people use whey post-workout (fast) and plant protein at other times (susta
 
 ---
 
-For a complete breakdown of all gym supplements — including creatine, pre-workout, vitamin D, and which ones to skip entirely — check out the **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements.html)**.
+For a complete breakdown of all gym supplements — including creatine, pre-workout, vitamin D, and which ones to skip entirely — check out the **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements])**.
 
-Also worth reading: **[Creatine 101: Dosage, Timing, and Benefits](/posts/creatine-101-dosage-timing-benefits.html)** — the single most effective supplement you can take alongside protein.
+Also worth reading: **[Creatine 101: Dosage, Timing, and Benefits](/posts/creatine-101-dosage-timing-benefits])** — the single most effective supplement you can take alongside protein.
 
 **Disclaimer:** This information is for educational purposes only. Consult a healthcare provider before starting any new supplement regimen.

@@ -18,7 +18,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.pages.dev/posts/complete-guide-gym-nutrition-muscle-gain.html"
+    "@id": "https://gymplateprep.pages.dev/posts/complete-guide-gym-nutrition-muscle-gain]"
   },
   "publisher": {
     "@type": "Organization",

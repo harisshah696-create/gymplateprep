@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "How much protein per day do you actually need? The science-backed formula: 1.6–2.2 g per kg of body weight.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-much-protein-per-day.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-much-protein-per-day]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/protein-hero.jpg"
@@ -71,8 +71,8 @@ For most people: **1.6–2.2 g/kg, every day, consistently.**
 
 ---
 
-For a complete breakdown of supplements that help you hit protein targets — including whey vs plant protein — read the **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements.html)**.
+For a complete breakdown of supplements that help you hit protein targets — including whey vs plant protein — read the **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements])**.
 
-Also worth reading: **[How to Track Macros: A Beginner's Guide](/posts/beginners-guide-tracking-macros.html)** for the full system on calories, carbs, and fat.
+Also worth reading: **[How to Track Macros: A Beginner's Guide](/posts/beginners-guide-tracking-macros])** for the full system on calories, carbs, and fat.
 
 **Disclaimer:** This is for educational purposes. Individual needs vary. Consult a professional for personalized advice.

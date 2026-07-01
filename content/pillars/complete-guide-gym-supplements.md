@@ -18,7 +18,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.pages.dev/posts/complete-guide-gym-supplements.html"
+    "@id": "https://gymplateprep.pages.dev/posts/complete-guide-gym-supplements]"
   },
   "publisher": {
     "@type": "Organization",

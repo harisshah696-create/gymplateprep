@@ -17,7 +17,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.pages.dev/posts/creatine-101-dosage-timing-benefits.html"
+    "@id": "https://gymplateprep.pages.dev/posts/creatine-101-dosage-timing-benefits]"
   },
   "publisher": {
     "@type": "Organization",
@@ -180,6 +180,6 @@ Creatine pairs well with anything, but these combinations work especially well:
 
 ---
 
-For a complete breakdown of all gym supplements — including whey protein, pre-workout, vitamin D, and which ones to skip entirely — check out our full **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements.html)**.
+For a complete breakdown of all gym supplements — including whey protein, pre-workout, vitamin D, and which ones to skip entirely — check out our full **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements])**.
 
 **Disclaimer:** This information is for educational purposes only. Consult a healthcare provider before starting any new supplement, especially if you have pre-existing medical conditions.

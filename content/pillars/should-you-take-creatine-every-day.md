@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "Should you take creatine every day? Yes. Take 5 g daily, no cycling needed. Here'\''s the science.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/should-you-take-creatine-every-day.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/should-you-take-creatine-every-day]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/creatine-hero.jpg"
@@ -77,8 +77,8 @@ This is wrong. Creatine isn't just for training — it helps with:
 
 ---
 
-For the complete breakdown of creatine — including dosage, timing, myths, and side effects — read **[Creatine 101: Dosage, Timing, and Benefits](/posts/creatine-101-dosage-timing-benefits.html)**.
+For the complete breakdown of creatine — including dosage, timing, myths, and side effects — read **[Creatine 101: Dosage, Timing, and Benefits](/posts/creatine-101-dosage-timing-benefits])**.
 
-Want to know which other supplements are worth your money? Check out the **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements.html)**.
+Want to know which other supplements are worth your money? Check out the **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements])**.
 
 **Disclaimer:** This information is for educational purposes. Consult a healthcare provider before starting any supplement regimen.

@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "The ideal pre-workout meal: moderate carbs, moderate protein, low fat, eaten 1.5-2 hours before training. Plus 6 sample meals.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/what-to-eat-before-workout.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/what-to-eat-before-workout]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/preworkout-meal-hero.jpg"
@@ -80,8 +80,8 @@ Something small is better than nothing, but also fine to train fasted if your wo
 
 ## What About Pre-Workout Supplements?
 
-Caffeine (coffee or pre-workout) 30-60 minutes before training can improve focus and strength by 3-5%. For the full breakdown of pre-workout ingredients and dosages, read our **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements.html)**.
+Caffeine (coffee or pre-workout) 30-60 minutes before training can improve focus and strength by 3-5%. For the full breakdown of pre-workout ingredients and dosages, read our **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements])**.
 
-For a full guide on nutrition for muscle gain — including post-workout meals, daily calories, and protein timing — check out **[The Complete Guide to Gym Nutrition for Muscle Gain](/posts/complete-guide-gym-nutrition-muscle-gain.html)**.
+For a full guide on nutrition for muscle gain — including post-workout meals, daily calories, and protein timing — check out **[The Complete Guide to Gym Nutrition for Muscle Gain](/posts/complete-guide-gym-nutrition-muscle-gain])**.
 
 **Disclaimer:** This is for educational purposes. Individual digestion varies. Experiment to find what works for you.
