@@ -22,7 +22,7 @@ OUTPUT_DIR = Path("_site")
 
 SITE_TITLE = "GymPlatePrep"
 SITE_DESCRIPTION = "Science-backed gym nutrition guides, meal prep recipes, and diet plans for muscle gain and fat loss."
-SITE_URL = "https://gymplateprep.com"
+SITE_URL = "https://gymplateprep.pages.dev"
 AUTHOR = "GymPlatePrep"
 
 

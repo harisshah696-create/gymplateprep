@@ -17,7 +17,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.com/posts/whey-vs-plant-protein-comparison.html"
+    "@id": "https://gymplateprep.pages.dev/posts/whey-vs-plant-protein-comparison.html"
   },
   "publisher": {
     "@type": "Organization",

@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "How much protein per day do you actually need? The science-backed formula: 1.6–2.2 g per kg of body weight.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/how-much-protein-per-day.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-much-protein-per-day.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/protein-hero.jpg"

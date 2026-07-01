@@ -17,7 +17,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.com/posts/creatine-101-dosage-timing-benefits.html"
+    "@id": "https://gymplateprep.pages.dev/posts/creatine-101-dosage-timing-benefits.html"
   },
   "publisher": {
     "@type": "Organization",

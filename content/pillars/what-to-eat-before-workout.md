@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "The ideal pre-workout meal: moderate carbs, moderate protein, low fat, eaten 1.5-2 hours before training. Plus 6 sample meals.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/what-to-eat-before-workout.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/what-to-eat-before-workout.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/preworkout-meal-hero.jpg"

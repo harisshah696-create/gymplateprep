@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "Beginners see changes in 8-12 weeks. Realistic gain rates: 1-2 lbs per month for beginners, 0.5-1 lb for intermediates.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/how-long-to-build-muscle.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-long-to-build-muscle.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/muscle-gain-hero.jpg"

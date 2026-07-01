@@ -11,7 +11,7 @@ schema: '{
   "datePublished": "2026-07-01",
   "description": "Should you take creatine every day? Yes. Take 5 g daily, no cycling needed. Here'\''s the science.",
   "author": {"@type": "Person", "name": "GymPlatePrep"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/should-you-take-creatine-every-day.html"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/should-you-take-creatine-every-day.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
 featured_image: "/static/images/creatine-hero.jpg"

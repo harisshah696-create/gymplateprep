@@ -18,7 +18,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.com/posts/ultimate-guide-meal-prep-weight-loss.html"
+    "@id": "https://gymplateprep.pages.dev/posts/ultimate-guide-meal-prep-weight-loss.html"
   },
   "publisher": {
     "@type": "Organization",

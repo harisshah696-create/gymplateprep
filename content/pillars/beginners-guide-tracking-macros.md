@@ -18,7 +18,7 @@ schema: '{
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gymplateprep.com/posts/beginners-guide-tracking-macros.html"
+    "@id": "https://gymplateprep.pages.dev/posts/beginners-guide-tracking-macros.html"
   },
   "publisher": {
     "@type": "Organization",
