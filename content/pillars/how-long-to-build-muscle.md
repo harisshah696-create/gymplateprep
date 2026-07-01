@@ -14,6 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/how-long-to-build-muscle.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
+featured_image: "/static/images/muscle-gain-hero.jpg"
 ---
 
 # How Long Does It Take to Build Muscle? Realistic Timelines
@@ -24,7 +25,7 @@ Here are the real numbers.
 
 ---
 
-# Muscle Gain Rates by Experience Level
+## Muscle Gain Rates by Experience Level
 
 | Experience Level | Monthly Muscle Gain | Time for Noticeable Change |
 | --- | ---: | --- |
@@ -36,7 +37,7 @@ These numbers assume you're doing everything right: training consistently, eatin
 
 ---
 
-# Timeline by Visual Change
+## Timeline by Visual Change
 
 | Timeframe | What You'll Notice |
 | --- | --- |
@@ -49,7 +50,7 @@ These numbers assume you're doing everything right: training consistently, eatin
 
 ---
 
-# Factors That Speed Up Progress
+## Factors That Speed Up Progress
 
 | Factor | Impact |
 | --- | --- |
@@ -64,7 +65,7 @@ The #1 reason people don't build muscle: **inconsistency.** Three months of perf
 
 ---
 
-# How Much Protein Do You Need to Build Muscle?
+## How Much Protein Do You Need to Build Muscle?
 
 **1.6–2.2 g per kg of body weight daily.** This is the same for beginners and advanced lifters. Protein needs don't drop as you get more experienced.
 
@@ -72,7 +73,7 @@ For a full breakdown, check out our guide: **[How Much Protein Do I Need Per Day
 
 ---
 
-# How to Speed Up Your Timeline
+## How to Speed Up Your Timeline
 
 | Action | How Much Faster? |
 | --- | --- |

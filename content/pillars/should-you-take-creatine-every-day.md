@@ -14,6 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/should-you-take-creatine-every-day.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
+featured_image: "/static/images/creatine-hero.jpg"
 ---
 
 # Should You Take Creatine Every Day? Yes — Here's Why
@@ -24,7 +25,7 @@ Here's why skipping days is actually worse than taking it consistently.
 
 ---
 
-# Why Daily Matters
+## Why Daily Matters
 
 Creatine works by saturating your muscles with phosphocreatine. This saturation happens **over time** — it's not like caffeine where you feel it instantly.
 
@@ -36,7 +37,7 @@ Consistency beats timing. Taking creatine at 8 AM vs 8 PM makes almost no differ
 
 ---
 
-# Do You Need to Cycle Creatine?
+## Do You Need to Cycle Creatine?
 
 **No.** There is zero evidence that creatine requires cycling.
 
@@ -46,13 +47,13 @@ Take 5 g daily, every day, indefinitely.
 
 ---
 
-# What If You Miss a Day?
+## What If You Miss a Day?
 
 Nothing happens. One missed day doesn't undo weeks of saturation. Just take your normal 5 g the next day — **don't double up** to "catch up." Doubling just increases the chance of stomach discomfort and gets peed out.
 
 ---
 
-# Rest Days: Yes, Take It
+## Rest Days: Yes, Take It
 
 Some people skip creatine on rest days thinking "I'm not training, so I don't need it."
 
@@ -64,7 +65,7 @@ This is wrong. Creatine isn't just for training — it helps with:
 
 ---
 
-# Quick Summary
+## Quick Summary
 
 | Question | Answer |
 | --- | --- |

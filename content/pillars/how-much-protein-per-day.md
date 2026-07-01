@@ -14,6 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/how-much-protein-per-day.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
+featured_image: "/static/images/protein-hero.jpg"
 ---
 
 # How Much Protein Do I Need Per Day? A Simple Calculator
@@ -26,7 +27,7 @@ That's it. That's the number backed by hundreds of studies. Let's make it practi
 
 ---
 
-# Quick Protein Calculator
+## Quick Protein Calculator
 
 | Your Weight | Protein Target (1.6–2.2 g/kg) |
 | --- | ---: |
@@ -43,7 +44,7 @@ That's it. That's the number backed by hundreds of studies. Let's make it practi
 
 ---
 
-# Does More Protein Help?
+## Does More Protein Help?
 
 Above 2.2 g/kg, the benefits plateau. Eating 300 g of protein when you weigh 175 lbs won't build more muscle than eating 175 g — it's just extra calories.
 
@@ -56,7 +57,7 @@ For most people: **1.6–2.2 g/kg, every day, consistently.**
 
 ---
 
-# How to Hit Your Target
+## How to Hit Your Target
 
 | Food | Protein | To Reach 175 g You'd Need |
 | --- | ---: | --- |

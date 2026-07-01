@@ -36,7 +36,7 @@ This is a straight comparison — no bias, no brand deals, just the facts.
 
 ---
 
-# 1. The Basics
+## 1. The Basics
 
 | | Whey Protein | Plant Protein |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ This is a straight comparison — no bias, no brand deals, just the facts.
 
 ---
 
-# 2. Muscle Building: Head to Head
+## 2. Muscle Building: Head to Head
 
 ### Leucine Content
 
@@ -77,7 +77,7 @@ Multiple studies directly comparing whey vs plant protein show:
 
 ---
 
-# 3. Digestibility
+## 3. Digestibility
 
 ### Whey
 
@@ -102,7 +102,7 @@ Multiple studies directly comparing whey vs plant protein show:
 
 ---
 
-# 4. Cost Comparison
+## 4. Cost Comparison
 
 | Type | Price Per Serving | Price Per 25 g Protein |
 | --- | ---: | ---: |
@@ -116,7 +116,7 @@ Multiple studies directly comparing whey vs plant protein show:
 
 ---
 
-# 5. Taste and Texture
+## 5. Taste and Texture
 
 | Aspect | Whey | Plant |
 | --- | --- | --- |
@@ -129,7 +129,7 @@ This is subjective, but **whey wins on taste** for most people. Plant protein ha
 
 ---
 
-# 6. Who Should Choose What
+## 6. Who Should Choose What
 
 ### Choose Whey If:
 
@@ -151,7 +151,7 @@ Many people use whey post-workout (fast) and plant protein at other times (susta
 
 ---
 
-# Quick Verdict
+## Quick Verdict
 
 | Category | Winner |
 | --- | --- |

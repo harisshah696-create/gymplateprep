@@ -14,6 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.com/posts/what-to-eat-before-workout.html"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
+featured_image: "/static/images/preworkout-meal-hero.jpg"
 ---
 
 # What Should I Eat Before a Workout? The Perfect Pre-Workout Meal
@@ -24,7 +25,7 @@ Here's the formula.
 
 ---
 
-# The Ideal Pre-Workout Meal
+## The Ideal Pre-Workout Meal
 
 **Moderate carbs + moderate protein + low fat + low fiber**
 
@@ -39,7 +40,7 @@ Here's the formula.
 
 ---
 
-# 6 Sample Pre-Workout Meals
+## 6 Sample Pre-Workout Meals
 
 | Meal | Calories | Protein |
 | --- | ---: | ---: |
@@ -54,7 +55,7 @@ These all digest well within the 1.5 hour window.
 
 ---
 
-# What NOT to Eat Before a Workout
+## What NOT to Eat Before a Workout
 
 | Food | Why |
 | --- | --- |
@@ -65,7 +66,7 @@ These all digest well within the 1.5 hour window.
 
 ---
 
-# What If You Train First Thing in the Morning?
+## What If You Train First Thing in the Morning?
 
 If you train fasted or don't have 1.5 hours to digest, keep it light:
 
@@ -77,7 +78,7 @@ Something small is better than nothing, but also fine to train fasted if your wo
 
 ---
 
-# What About Pre-Workout Supplements?
+## What About Pre-Workout Supplements?
 
 Caffeine (coffee or pre-workout) 30-60 minutes before training can improve focus and strength by 3-5%. For the full breakdown of pre-workout ingredients and dosages, read our **[Complete Guide to Gym Supplements](/posts/complete-guide-gym-supplements.html)**.
 

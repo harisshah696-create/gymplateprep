@@ -36,7 +36,7 @@ This guide covers the practical stuff — dosage, timing, myths — without the 
 
 ---
 
-# 1. What Creatine Actually Does
+## 1. What Creatine Actually Does
 
 Your muscles use a molecule called ATP for explosive movements — lifting, sprinting, jumping. ATP runs out fast (about 10 seconds of max effort).
 
@@ -50,7 +50,7 @@ It's not a stimulant. You won't "feel" it like caffeine. It's a fuel tank upgrad
 
 ---
 
-# 2. Dosage: How Much to Take
+## 2. Dosage: How Much to Take
 
 The standard recommendation is simple:
 
@@ -71,7 +71,7 @@ Loading means taking 20 g/day (4 × 5 g doses) for 5-7 days to saturate muscles 
 
 ---
 
-# 3. Timing: Does It Matter When You Take It?
+## 3. Timing: Does It Matter When You Take It?
 
 Short answer: **No, not really.**
 
@@ -89,7 +89,7 @@ Long answer: Some studies suggest a slight benefit to taking it post-workout (wh
 
 ---
 
-# 4. Forms: Which Type to Buy
+## 4. Forms: Which Type to Buy
 
 There are many forms of creatine on the market. Only one is worth your money:
 
@@ -105,7 +105,7 @@ There are many forms of creatine on the market. Only one is worth your money:
 
 ---
 
-# 5. Side Effects: What You Need to Know
+## 5. Side Effects: What You Need to Know
 
 ### Water Retention (The "Bloated" Look)
 
@@ -137,7 +137,7 @@ Some people get mild digestive issues, usually from taking too much at once (loa
 
 ---
 
-# 6. Who Benefits Most
+## 6. Who Benefits Most
 
 | Person | Benefit |
 | --- | --- |
@@ -149,7 +149,7 @@ Some people get mild digestive issues, usually from taking too much at once (loa
 
 ---
 
-# 7. Stacking: What to Take With Creatine
+## 7. Stacking: What to Take With Creatine
 
 Creatine pairs well with anything, but these combinations work especially well:
 
@@ -163,7 +163,7 @@ Creatine pairs well with anything, but these combinations work especially well:
 
 ---
 
-# Quick Reference
+## Quick Reference
 
 | Question | Answer |
 | --- | --- |
