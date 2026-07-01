@@ -100,7 +100,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 68px;
+    min-height: 68px;
 }
 
 .site-logo {
@@ -129,6 +129,8 @@ a:hover {
     display: flex;
     gap: var(--space-lg);
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .site-nav a {
@@ -720,6 +722,21 @@ article p:has(strong:only-child) {
 }
 
 /* ─── Responsive ───────────────────────────── */
+@media (max-width: 900px) {
+    .site-nav {
+        gap: var(--space-md);
+    }
+
+    .site-nav a {
+        font-size: 0.8rem;
+    }
+
+    .site-header .container {
+        padding-top: var(--space-sm);
+        padding-bottom: var(--space-sm);
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 var(--space-md);
@@ -756,11 +773,11 @@ article p:has(strong:only-child) {
     }
 
     .site-nav {
-        gap: var(--space-md);
+        gap: var(--space-sm);
     }
 
     .site-nav a {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .post-card__title {
@@ -782,18 +799,6 @@ article p:has(strong:only-child) {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
-    }
-}
-
-@media (max-width: 640px) {
-    .site-nav {
-        gap: var(--space-sm);
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-
-    .site-nav a {
-        font-size: 0.75rem;
     }
 }
 
