@@ -14,7 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/what-to-eat-before-workout]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
-featured_image: "/static/images/preworkout-meal-hero.jpg"
+featured_image: "/images/preworkout-meal-hero.jpg"
 ---
 
 # What Should I Eat Before a Workout? The Perfect Pre-Workout Meal

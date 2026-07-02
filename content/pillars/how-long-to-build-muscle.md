@@ -14,7 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-long-to-build-muscle]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
-featured_image: "/static/images/muscle-gain-hero.jpg"
+featured_image: "/images/muscle-gain-hero.jpg"
 ---
 
 # How Long Does It Take to Build Muscle? Realistic Timelines

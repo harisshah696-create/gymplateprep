@@ -14,7 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/should-you-take-creatine-every-day]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
-featured_image: "/static/images/creatine-hero.jpg"
+featured_image: "/images/creatine-hero.jpg"
 ---
 
 # Should You Take Creatine Every Day? Yes — Here's Why

@@ -14,7 +14,7 @@ schema: '{
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gymplateprep.pages.dev/posts/how-much-protein-per-day]"},
   "publisher": {"@type": "Organization", "name": "GymPlatePrep"}
 }'
-featured_image: "/static/images/protein-hero.jpg"
+featured_image: "/images/protein-hero.jpg"
 ---
 
 # How Much Protein Do I Need Per Day? A Simple Calculator
