@@ -6,7 +6,7 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
 <style>
 .calc-wrap { max-width: 960px; margin: 0 auto; }
 .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-@media (max-width: 768px) { .calc-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .calc-grid { gap: 0.75rem; } }
 
 /* ─── Left Panel: Calculator Form ───────────── */
 .calc-form {
@@ -123,9 +123,24 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
 .calc-results .meal-suggestion p { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin: 0.25rem 0; }
 .calc-results .meal-suggestion strong { color: #f97316; }
 
-@media (max-width: 768px) {
-    .calorie-display .number { font-size: 2.5rem; }
-    .calc-form, .calc-results { padding: 1.25rem; }
+@media (max-width: 600px) { .calc-grid { gap: 0.75rem; } }
+@media (max-width: 480px) {
+    .calc-form, .calc-results { padding: 1rem; }
+    .calc-form .row { grid-template-columns: 1fr; gap: 0;}
+    .calc-form .field { margin-bottom: 0.6rem; }
+    .calc-form label { font-size: 0.75rem; }
+    .calc-form select, .calc-form input[type="number"] { padding: 0.5rem 0.6rem; font-size: 0.85rem; }
+    .calc-form .radio-group label { padding: 0.35rem 0.6rem; font-size: 0.75rem; }
+    #calc-btn { padding: 0.7rem; font-size: 0.9rem; }
+    #calc-btn-wrap { margin-top: 0.75rem; }
+    .calorie-display .number { font-size: 2rem; }
+    .calorie-display { padding: 0.75rem 0; }
+    .calc-results h3 { font-size: 0.75rem; margin-bottom: 0.4rem; padding-bottom: 0.4rem; }
+    .macro-row { margin-bottom: 0.4rem; }
+    .macro-row .macro-label { width: 48px; font-size: 0.65rem; }
+    .macro-row .macro-grams { width: 42px; font-size: 0.75rem; }
+    .macro-row .macro-bar-wrap { height: 18px; }
+    .calc-results .meal-suggestion p { font-size: 0.7rem; }
 }
 </style>
 
