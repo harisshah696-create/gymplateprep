@@ -204,18 +204,33 @@ def md_to_html(text: str) -> tuple:
 
         # Raw HTML passthrough (for interactive pages like calculators)
         stripped = line.strip()
-        if stripped.startswith('<'):
+        if stripped.startswith('<') and not stripped.startswith('</'):
             flush_list()
             flush_table()
-            # Collect consecutive raw HTML lines
             raw_lines = [line]
-            while i + 1 < len(lines):
-                next_line = lines[i + 1].strip()
-                if next_line.startswith('<') or next_line == '' or next_line.startswith(('{', '//', '/*')):
+            # <script> blocks: collect everything until </script>
+            if stripped.startswith('<script'):
+                while i + 1 < len(lines):
                     i += 1
                     raw_lines.append(lines[i])
-                else:
-                    break
+                    if lines[i].strip().startswith('</script>'):
+                        break
+            # <style> blocks: collect everything until </style>
+            elif stripped.startswith('<style'):
+                while i + 1 < len(lines):
+                    i += 1
+                    raw_lines.append(lines[i])
+                    if lines[i].strip().startswith('</style>'):
+                        break
+            # Other block-level HTML tags: collect consecutive lines
+            else:
+                while i + 1 < len(lines):
+                    next_line = lines[i + 1].strip()
+                    if next_line.startswith('<') and not next_line.startswith('</') or next_line == '':
+                        i += 1
+                        raw_lines.append(lines[i])
+                    else:
+                        break
             html.append("\n".join(raw_lines))
             i += 1
             continue
