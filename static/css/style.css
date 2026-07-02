@@ -60,6 +60,8 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(249, 115, 22, 0.15);
+    touch-action: manipulation;
 }
 
 img {
@@ -302,12 +304,6 @@ a:hover {
     border-color: #f97316;
     box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
 }
-@media (max-width: 768px) {
-    .brand-hero__title { font-size: 2.2rem; }
-    .brand-hero__tagline { font-size: 0.95rem; }
-    .brand-hero__icon svg { width: 56px; height: 56px; }
-    .brand-hero__btn { padding: 0.7rem 1.5rem; font-size: 0.85rem; }
-}
 
 /* ─── Promo Banner ───────────────────────────── */
 .promo-banner {
@@ -357,10 +353,6 @@ a:hover {
 .calc-promo p { margin: 0; font-size: 0.9rem; color: var(--color-text, #1f2937); }
 .calc-promo a { color: #f97316; font-weight: 700; text-decoration: none; }
 .calc-promo a:hover { text-decoration: underline; }
-@media (max-width: 768px) {
-    .promo-banner { padding: 1.5rem; margin: 1.5rem 0; }
-    .promo-banner__content h2 { font-size: 1.15rem; }
-}
 
 /* ─── Article Hero ──────────────────────────── */
 .article-hero {
@@ -456,18 +448,6 @@ a:hover {
 .post-card__body {
     flex: 1;
     min-width: 0;
-}
-
-@media (max-width: 480px) {
-    .post-card--has-image {
-        flex-direction: column;
-        gap: var(--space-md);
-    }
-
-    .post-card__thumb {
-        width: 100%;
-        height: 180px;
-    }
 }
 
 /* ─── Category Tags ─────────────────────── */
@@ -858,133 +838,126 @@ article p:has(strong:only-child) {
 }
 
 /* ─── Responsive ───────────────────────────── */
+
+/* Tablet landscape / small desktop */
 @media (max-width: 900px) {
-    .site-nav {
-        gap: 0.35rem;
-    }
-
-    .site-nav a {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.75rem;
-    }
-
-    .site-header .container {
-        padding-top: var(--space-sm);
-        padding-bottom: var(--space-sm);
-    }
+    .site-nav { gap: 0.35rem; }
+    .site-nav a { font-size: 0.8rem; padding: 0.4rem 0.75rem; }
+    .site-header .container { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
 }
 
+/* Tablet portrait */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 var(--space-md);
-    }
+    .container { padding: 0 var(--space-md); }
 
-    .hero {
-        padding: var(--space-2xl) var(--space-md);
-        margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) var(--space-lg);
-    }
+    .hero { padding: var(--space-2xl) var(--space-md); margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) var(--space-lg); }
+    .hero h1 { font-size: 2.1rem; }
+    .hero p { font-size: 1rem; }
 
-    .hero h1 {
-        font-size: 2.1rem;
-    }
+    .brand-hero__title { font-size: 2.2rem; }
+    .brand-hero__tagline { font-size: 0.95rem; }
+    .brand-hero__icon svg { width: 56px; height: 56px; }
+    .brand-hero__btn { padding: 0.7rem 1.5rem; font-size: 0.85rem; }
 
-    .hero p {
-        font-size: 1rem;
-    }
+    article h1 { font-size: 1.8rem; }
+    article h2 { font-size: 1.35rem; }
+    article p { font-size: 1rem; }
 
-    article h1 {
-        font-size: 1.8rem;
-    }
+    .footer-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
 
-    article h2 {
-        font-size: 1.35rem;
-    }
+    .site-nav { gap: 0.3rem; }
+    .site-nav a { font-size: 0.75rem; padding: 0.35rem 0.6rem; }
+    .post-card__title { font-size: 1.2rem; }
 
-    article p {
-        font-size: 1rem;
-    }
+    .article-hero { min-height: 220px; padding: var(--space-2xl) var(--space-md); }
+    .article-hero__content h1 { font-size: 2rem; }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-    }
-
-    .site-nav {
-        gap: 0.3rem;
-    }
-
-    .site-nav a {
-        font-size: 0.75rem;
-        padding: 0.35rem 0.6rem;
-    }
-
-    .post-card__title {
-        font-size: 1.2rem;
-    }
-
-    /* Article hero on tablet */
-    .article-hero {
-        min-height: 220px;
-        padding: var(--space-2xl) var(--space-md);
-    }
-
-    .article-hero__content h1 {
-        font-size: 2rem;
-    }
-
-    /* Make tables scrollable on mobile */
-    article table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
+    article table { display: block; overflow-x: auto; white-space: nowrap; }
+    .promo-banner { padding: 1.5rem; margin: 1.5rem 0; }
+    .promo-banner__content h2 { font-size: 1.15rem; }
 }
 
+/* Large phones */
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.7rem;
-    }
+    .hero h1 { font-size: 1.7rem; }
+    .hero--with-image { min-height: 300px; }
 
-    .hero--with-image {
-        min-height: 300px;
-    }
+    .brand-hero__title { font-size: 1.7rem; }
+    .brand-hero__tagline { font-size: 0.85rem; }
+    .brand-hero__btn { padding: 0.6rem 1.25rem; font-size: 0.8rem; }
 
-    .post-card {
-        padding: var(--space-md);
-    }
+    .post-card { padding: var(--space-md); }
+    .post-card__title { font-size: 1.1rem; }
+    .post-card--has-image { flex-direction: column; gap: var(--space-md); }
+    .post-card__thumb { width: 100%; height: 180px; }
 
-    .post-card__title {
-        font-size: 1.1rem;
-    }
+    .article-hero { min-height: 180px; padding: var(--space-xl) var(--space-md); }
+    .article-hero__content h1 { font-size: 1.5rem; }
 
-    .article-hero {
-        min-height: 180px;
-        padding: var(--space-xl) var(--space-md);
-    }
+    .email-capture { padding: var(--space-xl) var(--space-md); }
+    .email-capture__fields { flex-direction: column; }
+    .email-capture__input { width: 100%; }
+    .email-capture__btn { width: 100%; }
+    .posts-list { padding-bottom: var(--space-xl); }
 
-    .article-hero__content h1 {
-        font-size: 1.5rem;
-    }
+    /* Article body - tighter spacing on phones */
+    article p { font-size: 1rem; line-height: 1.7; }
+    article li { font-size: 1rem; }
+    article h3 { font-size: 1.15rem; }
+    article blockquote { padding: var(--space-md) var(--space-lg); margin: var(--space-lg) 0; }
+    article pre { padding: var(--space-md); font-size: 0.8rem; }
+    article img { margin: var(--space-lg) 0; }
+}
 
-    .email-capture {
-        padding: var(--space-xl) var(--space-md);
-    }
+/* Small phones (< 380px e.g. iPhone SE) */
+@media (max-width: 380px) {
+    .container { padding: 0 0.75rem; }
 
-    .email-capture__fields {
-        flex-direction: column;
-    }
+    .site-logo { font-size: 1.15rem; }
+    .site-logo__icon { font-size: 1.2rem; }
+    .site-nav { gap: 0.2rem; }
+    .site-nav a { font-size: 0.68rem; padding: 0.3rem 0.5rem; border-radius: 6px; }
+    .site-nav-group { gap: 0.5rem; }
+    .theme-toggle { width: 32px; height: 32px; }
+    .site-header .container { min-height: 56px; }
 
-    .email-capture__input {
-        width: 100%;
-    }
+    .hero h1 { font-size: 1.4rem; }
+    .hero p { font-size: 0.9rem; }
+    .hero--with-image { min-height: 260px; }
+    .hero { padding: var(--space-xl) var(--space-md); }
 
-    .email-capture__btn {
-        width: 100%;
-    }
+    .brand-hero__title { font-size: 1.4rem; }
+    .brand-hero__tagline { font-size: 0.8rem; }
+    .brand-hero__icon svg { width: 44px; height: 44px; }
+    .brand-hero__cta { flex-direction: column; align-items: center; }
+    .brand-hero__btn { width: 100%; max-width: 220px; text-align: center; }
 
-    .posts-list {
-        padding-bottom: var(--space-xl);
-    }
+    .promo-banner { padding: 1.25rem; }
+    .promo-banner__content h2 { font-size: 1rem; }
+    .promo-banner__content p { font-size: 0.85rem; }
+    .promo-banner__btn { font-size: 0.85rem; padding: 0.6rem 1.25rem; }
+
+    article h1 { font-size: 1.4rem; }
+    article h2 { font-size: 1.15rem; }
+    article h3 { font-size: 1rem; }
+    article p { font-size: 0.95rem; line-height: 1.65; }
+    article li { font-size: 0.95rem; }
+    article img { margin: var(--space-md) 0; }
+
+    .post-card { padding: var(--space-sm) var(--space-md); }
+    .post-card__title { font-size: 1rem; }
+    .post-card__excerpt { font-size: 0.88rem; }
+    .post-card__thumb { height: 140px; }
+    .post-card__link { font-size: 0.85rem; }
+
+    .article-hero { min-height: 140px; padding: var(--space-lg) var(--space-md); }
+    .article-hero__content h1 { font-size: 1.25rem; }
+
+    .section-title { font-size: 1.15rem; }
+    .category-tag { font-size: 0.65rem; }
+
+    article table { font-size: 0.75rem; }
+    article th, article td { padding: var(--space-xs) var(--space-sm); }
 }
 
 /* ═══════════════════════════════════════════
