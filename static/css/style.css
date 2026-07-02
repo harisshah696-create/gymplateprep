@@ -127,40 +127,36 @@ a:hover {
 
 .site-nav {
     display: flex;
-    gap: var(--space-lg);
+    gap: 0.5rem;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
 
 .site-nav a {
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-weight: 700;
+    font-size: 0.9rem;
     color: var(--color-text-muted);
-    padding: var(--space-xs) 0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
     position: relative;
-    transition: color 0.2s ease;
+    border: 1px solid transparent;
 }
 
-.site-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--color-primary);
-    transition: width 0.2s ease;
-    border-radius: 1px;
+@keyframes navGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.35), 0 4px 12px rgba(249, 115, 22, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(249, 115, 22, 0.55), 0 4px 16px rgba(249, 115, 22, 0.3); }
 }
 
 .site-nav a:hover {
-    color: var(--color-primary);
+    color: #fff;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border-color: rgba(249, 115, 22, 0.3);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.35), 0 4px 12px rgba(249, 115, 22, 0.2);
     text-decoration: none;
-}
-
-.site-nav a:hover::after {
-    width: 100%;
+    transform: translateY(-2px);
+    animation: navGlow 2s ease-in-out infinite;
 }
 
 /* ─── Hero (Homepage) ─────────────────────── */
@@ -781,11 +777,12 @@ article p:has(strong:only-child) {
 /* ─── Responsive ───────────────────────────── */
 @media (max-width: 900px) {
     .site-nav {
-        gap: var(--space-md);
+        gap: 0.35rem;
     }
 
     .site-nav a {
         font-size: 0.8rem;
+        padding: 0.4rem 0.75rem;
     }
 
     .site-header .container {
@@ -830,11 +827,12 @@ article p:has(strong:only-child) {
     }
 
     .site-nav {
-        gap: var(--space-sm);
+        gap: 0.3rem;
     }
 
     .site-nav a {
         font-size: 0.75rem;
+        padding: 0.35rem 0.6rem;
     }
 
     .post-card__title {
@@ -942,11 +940,13 @@ article p:has(strong:only-child) {
 }
 
 [data-theme="dark"] .site-nav a {
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme="dark"] .site-nav a:hover {
-    color: var(--color-primary);
+    color: #fff;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    box-shadow: 0 0 25px rgba(249, 115, 22, 0.4), 0 4px 12px rgba(249, 115, 22, 0.25);
 }
 
 [data-theme="dark"] .post-card {
