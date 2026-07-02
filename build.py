@@ -632,8 +632,27 @@ def build_index(posts_metadata: list, nav_links: str) -> None:
         <section class="hero hero--with-image" style="background-image: url(/images/hero-gym.jpg)">
             <div class="hero__overlay"></div>
             <div class="hero__content">
-                <h1>{SITE_TITLE}</h1>
-                <p>{SITE_DESCRIPTION}</p>
+                <div class="brand-hero">
+                    <div class="brand-hero__icon">
+                        <svg viewBox="0 0 100 100" width="80" height="80" fill="none" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="20" y="35" width="60" height="30" rx="6" />
+                            <rect x="10" y="42" width="10" height="16" rx="3" />
+                            <rect x="80" y="42" width="10" height="16" rx="3" />
+                            <rect x="28" y="28" width="8" height="44" rx="3" />
+                            <rect x="64" y="28" width="8" height="44" rx="3" />
+                            <line x1="36" y1="32" x2="36" y2="68" stroke-width="2" opacity="0.4" />
+                            <line x1="44" y1="28" x2="44" y2="72" stroke-width="2" opacity="0.4" />
+                            <line x1="52" y1="28" x2="52" y2="72" stroke-width="2" opacity="0.4" />
+                            <line x1="60" y1="32" x2="60" y2="68" stroke-width="2" opacity="0.4" />
+                        </svg>
+                    </div>
+                    <h1 class="brand-hero__title">{SITE_TITLE}</h1>
+                    <p class="brand-hero__tagline">{SITE_DESCRIPTION}</p>
+                    <div class="brand-hero__cta">
+                        <a href="/posts/complete-guide-gym-nutrition-muscle-gain" class="brand-hero__btn">Start Here →</a>
+                        <a href="/macro-calculator" class="brand-hero__btn brand-hero__btn--secondary">Try the Calculator</a>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="promo-banner">
