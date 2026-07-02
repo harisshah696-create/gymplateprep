@@ -527,12 +527,18 @@ def build_post(md_path: Path, nav_links: str, post_metadata: list = None) -> tup
         related = find_related(slug, categories, post_metadata)
         related_html = render_related(related)
 
+    calc_promo = """
+    <div class="calc-promo">
+        <p><strong>🎯 Know your numbers?</strong> Get your personalized daily macros — <a href="/macro-calculator">try the free Macro Calculator →</a></p>
+    </div>"""
+
     content_html = article_hero + "\n" + f"""
     <article>
         {toc_html}
         {content_html}
     </article>
     {email_capture_html}
+    {calc_promo}
     {related_html}"""
 
     # Article schema if not provided
@@ -613,6 +619,13 @@ def build_index(posts_metadata: list, nav_links: str) -> None:
             <div class="hero__content">
                 <h1>{SITE_TITLE}</h1>
                 <p>{SITE_DESCRIPTION}</p>
+            </div>
+        </section>
+        <section class="promo-banner">
+            <div class="promo-banner__content">
+                <h2>🔢 Find Your Perfect Macros</h2>
+                <p>Not sure how much protein, carbs, or fat you actually need? Use our <strong>free Macro Calculator</strong> — get personalized daily targets based on your body, activity, and goals in seconds.</p>
+                <a href="/macro-calculator" class="promo-banner__btn">Calculate My Macros →</a>
             </div>
         </section>
         <section class="posts-list">
