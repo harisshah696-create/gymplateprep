@@ -8,233 +8,123 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
 .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 @media (max-width: 768px) { .calc-grid { grid-template-columns: 1fr; } }
 
-/* ─── Left Panel: Retro Form ─────────────────── */
+/* ─── Left Panel: Calculator Form ───────────── */
 .calc-form {
-    background: #1a1b2e;
-    border: 3px solid #ff2d78;
+    background: #fff;
+    border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 1.75rem;
-    box-shadow: 0 0 25px rgba(255, 45, 120, 0.25), inset 0 0 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-.calc-form::before {
-    content: '// INPUT';
-    position: absolute;
-    top: -11px;
-    left: 16px;
-    background: #1a1b2e;
-    padding: 0 10px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: #00f5d4;
-    letter-spacing: 2px;
-    font-family: 'Courier New', monospace;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 .calc-form label {
     display: block;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 0.3rem;
-    font-size: 0.8rem;
-    color: #00f5d4;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #374151;
 }
 .calc-form .field { margin-bottom: 1.1rem; }
 .calc-form select,
 .calc-form input[type="number"] {
     width: 100%;
     padding: 0.65rem 0.75rem;
-    border: 2px solid #2a2b4a;
+    border: 1.5px solid #d1d5db;
     border-radius: 10px;
-    font-size: 1rem;
-    background: #0f1023;
-    color: #ff2d78;
-    font-weight: 700;
+    font-size: 0.95rem;
+    background: #f9fafb;
+    color: #111827;
+    font-weight: 500;
     box-sizing: border-box;
     transition: border-color 0.2s, box-shadow 0.2s;
-    font-family: 'Courier New', monospace;
 }
 .calc-form select:focus,
 .calc-form input:focus {
     outline: none;
-    border-color: #00f5d4;
-    box-shadow: 0 0 12px rgba(0, 245, 212, 0.3);
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249,115,22,0.12);
+    background: #fff;
 }
-.calc-form select option { background: #0f1023; color: #ff2d78; }
+.calc-form select option { background: #fff; color: #111827; }
 .calc-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .calc-form .radio-group { display: flex; gap: 0.4rem; }
 .calc-form .radio-group label {
-    font-weight: 700;
-    font-size: 0.8rem;
+    font-weight: 500;
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
     gap: 0.3rem;
     cursor: pointer;
-    padding: 0.45rem 0.8rem;
-    border: 2px solid #2a2b4a;
+    padding: 0.45rem 0.9rem;
+    border: 1.5px solid #d1d5db;
     border-radius: 10px;
-    background: #0f1023;
-    color: #6c6ea0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    background: #f9fafb;
+    color: #6b7280;
     transition: all 0.2s;
 }
 .calc-form .radio-group input:checked + label {
-    background: #ff2d78;
+    background: #f97316;
     color: #fff;
-    border-color: #ff2d78;
-    box-shadow: 0 0 15px rgba(255, 45, 120, 0.4);
+    border-color: #f97316;
+    box-shadow: 0 2px 8px rgba(249,115,22,0.25);
 }
 
 /* ─── Calculate Button ─────────────────────── */
 #calc-btn-wrap { margin-top: 1.5rem; }
 #calc-btn {
     width: 100%;
-    padding: 1.1rem 1rem;
-    background: linear-gradient(135deg, #ff2d78, #ff6b35);
+    padding: 0.9rem 1rem;
+    background: #f97316;
     color: #fff;
     border: none;
-    border-radius: 12px;
-    font-size: 1.2rem;
-    font-weight: 900;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.25s;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px rgba(255, 45, 120, 0.4);
-    font-family: 'Courier New', monospace;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(249,115,22,0.25);
 }
-#calc-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 35px rgba(255, 45, 120, 0.6), 0 8px 25px rgba(255, 45, 120, 0.3);
-}
+#calc-btn:hover { background: #ea580c; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(249,115,22,0.35); }
 #calc-btn:active { transform: translateY(0); }
 
-/* ─── Right Panel: Retro Results ────────────── */
+/* ─── Right Panel: Results ──────────────────── */
 .calc-results {
-    background: linear-gradient(145deg, #0f1023 0%, #1a1b2e 100%);
-    border: 3px solid #00f5d4;
+    background: linear-gradient(145deg, #1a1a2e 0%, #2d1b00 100%);
     border-radius: 16px;
     padding: 1.75rem;
     color: #fff;
-    box-shadow: 0 0 25px rgba(0, 245, 212, 0.2), inset 0 0 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-.calc-results::before {
-    content: '// OUTPUT';
-    position: absolute;
-    top: -11px;
-    left: 16px;
-    background: #0f1023;
-    padding: 0 10px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: #ff2d78;
-    letter-spacing: 2px;
-    font-family: 'Courier New', monospace;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
 }
 .calc-results h3 {
-    color: #00f5d4;
+    color: #f97316;
     margin: 0 0 0.75rem;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: 'Courier New', monospace;
-    border-bottom: 2px solid rgba(0, 245, 212, 0.2);
-    padding-bottom: 0.75rem;
-}
-.calorie-display {
-    text-align: center;
-    padding: 1.25rem 0;
-}
-.calorie-display .number {
-    font-size: 3.75rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #ff2d78, #ff6b35);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    text-shadow: none;
-    filter: drop-shadow(0 0 20px rgba(255, 45, 120, 0.4));
-}
-.calorie-display .label {
-    font-size: 0.75rem;
-    color: #6c6ea0;
-    margin-top: 0.15rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: 'Courier New', monospace;
-}
-
-.macro-bars { margin-top: 1rem; }
-.macro-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.65rem; }
-.macro-row .macro-label {
-    width: 65px;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: 'Courier New', monospace;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.75rem;
 }
-.macro-row .macro-bar-wrap {
-    flex: 1;
-    height: 22px;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 11px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-.macro-row .macro-bar {
-    height: 100%;
-    border-radius: 11px;
-    transition: width 0.4s ease;
-    position: relative;
-}
-.macro-row .macro-bar.protein {
-    background: linear-gradient(90deg, #ff2d78, #ff6b35);
-    box-shadow: 0 0 12px rgba(255, 45, 120, 0.4);
-}
-.macro-row .macro-bar.carbs {
-    background: linear-gradient(90deg, #00f5d4, #00b4d8);
-    box-shadow: 0 0 12px rgba(0, 245, 212, 0.4);
-}
-.macro-row .macro-bar.fat {
-    background: linear-gradient(90deg, #a855f7, #d946ef);
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
-}
-.macro-row .macro-grams {
-    width: 65px;
-    text-align: right;
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: #fff;
-    font-family: 'Courier New', monospace;
-}
-.macro-row .macro-percent {
-    width: 35px;
-    text-align: right;
-    font-size: 0.7rem;
-    color: #6c6ea0;
-    font-family: 'Courier New', monospace;
-}
+.calorie-display { text-align: center; padding: 1.25rem 0; }
+.calorie-display .number { font-size: 3.5rem; font-weight: 900; color: #f97316; line-height: 1; }
+.calorie-display .label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.15rem; text-transform: uppercase; letter-spacing: 1px; }
 
-.calc-results .meal-suggestion {
-    margin-top: 1rem;
-    padding-top: 0.75rem;
-    border-top: 2px solid rgba(0, 245, 212, 0.15);
-}
-.calc-results .meal-suggestion p {
-    font-size: 0.75rem;
-    color: #6c6ea0;
-    margin: 0.25rem 0;
-    font-family: 'Courier New', monospace;
-}
-.calc-results .meal-suggestion strong { color: #00f5d4; }
+.macro-bars { margin-top: 1rem; }
+.macro-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.65rem; }
+.macro-row .macro-label { width: 65px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.macro-row .macro-bar-wrap { flex: 1; height: 24px; background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
+.macro-row .macro-bar { height: 100%; border-radius: 12px; transition: width 0.4s ease; }
+.macro-row .macro-bar.protein { background: linear-gradient(90deg, #f97316, #fb923c); }
+.macro-row .macro-bar.carbs { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.macro-row .macro-bar.fat { background: linear-gradient(90deg, #a855f7, #c084fc); }
+.macro-row .macro-grams { width: 60px; text-align: right; font-size: 0.85rem; font-weight: 700; color: #fff; }
+.macro-row .macro-percent { width: 35px; text-align: right; font-size: 0.7rem; color: rgba(255,255,255,0.4); }
+
+.calc-results .meal-suggestion { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.calc-results .meal-suggestion p { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin: 0.25rem 0; }
+.calc-results .meal-suggestion strong { color: #f97316; }
 
 @media (max-width: 768px) {
-    .calorie-display .number { font-size: 2.75rem; }
+    .calorie-display .number { font-size: 2.5rem; }
     .calc-form, .calc-results { padding: 1.25rem; }
 }
 </style>
@@ -283,13 +173,13 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
 </div>
 
 <div class="field">
-<label for="activity">Activity</label>
+<label for="activity">Activity Level</label>
 <select id="activity">
-<option value="1.2">Sedentary</option>
-<option value="1.375">Light (1-3 days)</option>
-<option value="1.55" selected>Moderate (3-5 days)</option>
-<option value="1.725">Active (6-7 days)</option>
-<option value="1.9">Very Active (2x/day)</option>
+<option value="1.2">Sedentary (desk job, no exercise)</option>
+<option value="1.375">Light (1-3 days/week)</option>
+<option value="1.55" selected>Moderate (3-5 days/week)</option>
+<option value="1.725">Active (6-7 days/week)</option>
+<option value="1.9">Very Active (2x/day or physical job)</option>
 </select>
 </div>
 
@@ -303,25 +193,25 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
 </div>
 
 <div id="calc-btn-wrap">
-<button id="calc-btn">Calculate</button>
+<button id="calc-btn">Calculate My Macros</button>
 </div>
 </div>
 
 <div class="calc-results" id="results">
-<h3>Daily Targets</h3>
+<h3>Your Daily Targets</h3>
 <div class="calorie-display">
 <div class="number" id="calories-output">2,500</div>
-<div class="label">calories</div>
+<div class="label">calories per day</div>
 </div>
 <div class="macro-bars">
 <div class="macro-row">
-<span class="macro-label" style="color:#ff2d78">Protein</span>
+<span class="macro-label" style="color:#f97316">Protein</span>
 <div class="macro-bar-wrap"><div class="macro-bar protein" id="protein-bar" style="width:30%"></div></div>
 <span class="macro-grams" id="protein-grams">188g</span>
 <span class="macro-percent" id="protein-pct">30%</span>
 </div>
 <div class="macro-row">
-<span class="macro-label" style="color:#00f5d4">Carbs</span>
+<span class="macro-label" style="color:#3b82f6">Carbs</span>
 <div class="macro-bar-wrap"><div class="macro-bar carbs" id="carbs-bar" style="width:40%"></div></div>
 <span class="macro-grams" id="carbs-grams">250g</span>
 <span class="macro-percent" id="carbs-pct">40%</span>
@@ -370,19 +260,19 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
       proteinPct = 0.40;
       carbsPct = 0.30;
       fatPct = 0.30;
-      mealIdea = 'High-protein breakfast (eggs + Greek yogurt) keeps you full.';
+      mealIdea = 'Try a high-protein breakfast (eggs + Greek yogurt) to stay full longer.';
     } else if (goal === 'gain') {
       cal = tdee + 300;
       proteinPct = 0.35;
       carbsPct = 0.40;
       fatPct = 0.25;
-      mealIdea = 'Add an extra meal or shake - 2g protein per kg bodyweight.';
+      mealIdea = 'Add an extra meal or shake — aim for 2g protein per kg of bodyweight.';
     } else {
       cal = tdee;
       proteinPct = 0.30;
       carbsPct = 0.40;
       fatPct = 0.30;
-      mealIdea = 'Protein with every meal, prioritize whole food carbs.';
+      mealIdea = 'Maintain balance: protein with every meal, prioritize whole food carbs.';
     }
 
     var proteinG = Math.round((cal * proteinPct) / 4);
@@ -401,16 +291,16 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
     document.getElementById('fat-bar').style.width = Math.round(fatPct * 100) + '%';
 
     var mealEl = document.getElementById('meal-suggestion');
-    mealEl.innerHTML = '<p><strong>></strong> ' + mealIdea + '</p>';
+    mealEl.innerHTML = '<p><strong>Tip:</strong> ' + mealIdea + '</p>';
   }
 
   var btn = document.getElementById('calc-btn');
   if (btn) {
     btn.addEventListener('click', function() {
       calculate();
-      btn.textContent = '> CALCULATED';
+      btn.textContent = 'Calculated!';
       setTimeout(function() {
-        btn.textContent = 'Calculate';
+        btn.textContent = 'Calculate My Macros';
       }, 2000);
     });
   }
