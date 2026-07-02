@@ -35,6 +35,9 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
 .calc-results .meal-suggestion { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.15); }
 .calc-results .meal-suggestion p { font-size: 0.85rem; opacity: 0.8; margin: 0.3rem 0; }
 .calc-results .meal-suggestion strong { color: #f97316; }
+#calc-btn { width:100%; padding:0.85rem; background:#f97316; color:#fff; border:none; border-radius:10px; font-size:1.1rem; font-weight:700; cursor:pointer; margin-top:0.5rem; transition: background 0.2s, transform 0.1s; }
+#calc-btn:hover { background:#ea580c; transform: translateY(-1px); }
+#calc-btn:active { transform: translateY(0); }
 @media (max-width: 768px) { .calorie-display .number { font-size: 2.5rem; } }
 </style>
 
@@ -101,6 +104,7 @@ description: Calculate your daily calorie and macronutrient needs for muscle gai
 </select>
 </div>
 
+<button id="calc-btn">Calculate My Macros</button>
 </div>
 
 <div class="calc-results" id="results">
@@ -179,11 +183,12 @@ var mealEl = document.getElementById('meal-suggestion');
 mealEl.innerHTML = '<p><strong>💡 Tip:</strong> ' + mealIdea + '</p>';
 }
 
-var inputs = document.querySelectorAll('.calc-form input, .calc-form select');
-for (var i = 0; i < inputs.length; i++) {
-inputs[i].addEventListener('input', calculate);
-inputs[i].addEventListener('change', calculate);
-}
+document.getElementById('calc-btn').addEventListener('click', function(e) {
+calculate();
+this.textContent = '✓ Calculated!';
+setTimeout(function(){ document.getElementById('calc-btn').textContent = 'Calculate My Macros'; }, 2000);
+});
+
 calculate();
 })();
 </script>
