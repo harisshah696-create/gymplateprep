@@ -202,6 +202,24 @@ def md_to_html(text: str) -> tuple:
             i += 1
             continue
 
+        # Raw HTML passthrough (for interactive pages like calculators)
+        stripped = line.strip()
+        if stripped.startswith('<'):
+            flush_list()
+            flush_table()
+            # Collect consecutive raw HTML lines
+            raw_lines = [line]
+            while i + 1 < len(lines):
+                next_line = lines[i + 1].strip()
+                if next_line.startswith('<') or next_line == '' or next_line.startswith(('{', '//', '/*')):
+                    i += 1
+                    raw_lines.append(lines[i])
+                else:
+                    break
+            html.append("\n".join(raw_lines))
+            i += 1
+            continue
+
         # Regular paragraph
         flush_list()
         flush_table()
@@ -359,6 +377,7 @@ def build_nav_links(posts_metadata: list) -> str:
     for cat in sorted(cats):
         slug = cat.lower().replace(" ", "-")
         links.append(f'<a href="/categories/{slug}/">{escape_html(cat)}</a>')
+    links.append('<a href="/macro-calculator">Macro Calculator</a>')
     links.append('<a href="/about">About</a>')
 
     return "\n                ".join(links)
@@ -775,7 +794,7 @@ def build_pages(nav_links: str) -> None:
             year=datetime.now().strftime("%Y"),
             date="",
             page_title=title,
-            canonical_url=f"{SITE_URL}/{md_path.stem}.html",
+            canonical_url=f"{SITE_URL}/{md_path.stem}",
             nav_links=nav_links
         )
 
